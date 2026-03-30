@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Curated Wanderer | Online Travel Planner</title>
     <link href="styles/output.css" rel="stylesheet"/>
     </head>
-    <body class="bg-[var(--color-surface)] text-[var(--color-on-surface)] font-body selection:bg-[var(--color-primary-container)] selection:text-[var(--color-on-primary-container)]">
+    <body class="bg-surface text-on-surface font-body selection:bg-[var(--color-primary-container)] selection:text-[var(--color-on-primary-container)]">
         <!--Navigation Bar-->
         <nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 dark:bg-stone-950/80 backdrop-blur-lg">
             <div class="flex justify-between items-center px-8 py-5 max-w-screen-2xl mx-auto">
@@ -35,7 +37,11 @@
                     <div class="relative group max-w-2xl mx-auto">
                     <div class="flex items-center bg-[var(--color-surface)]/70 glass-effect p-2 rounded-full shadow-2xl transition-all duration-300 focus-within:bg-[var(--color-surface)] focus-within:ring-4 focus-within:ring-[var(--color-primary)]/5">
                     <div class="pl-6 flex items-center text-[var(--color-on-surface-variant)]">
-                        <span class="material-symbols-outlined" data-icon="search">search</span>
+                        <!--Search Icon-->
+                        <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
+                        </svg>
                     </div>
                         <button>Explore</button>
                     </div>

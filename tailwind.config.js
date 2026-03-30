@@ -6,7 +6,15 @@ module.exports = {
     "./**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "surface": "#fafaf5",
+        "on-surface": "#1a1c19",
+      },
+      fontFamily: {
+        body: ["Manrope"],
+      }
+    },
   },
   plugins: [],
 }
