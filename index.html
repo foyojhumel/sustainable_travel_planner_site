@@ -5,29 +5,47 @@
     <title>Curated Wanderer | Online Travel Planner</title>
     <link href="styles/output.css" rel="stylesheet"/>
     </head>
-    <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+    <body class="bg-[var(--color-surface)] text-[var(--color-on-surface)] font-body selection:bg-[var(--color-primary-container)] selection:text-[var(--color-on-primary-container)]">
         <!--Navigation Bar-->
         <nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 dark:bg-stone-950/80 backdrop-blur-lg">
             <div class="flex justify-between items-center px-8 py-5 max-w-screen-2xl mx-auto">
             <div class="text-xl font-bold text-[#00327d] dark:text-blue-400 tracking-tighter font-headline">
-                Curated Wanderer</div>
+                Curated Wanderer
+            </div>
             <div class="flex items-center gap-4">
                 <button class="px-5 py-2 text-sm font-semibold text-stone-600 hover:text-[#00327d] transition-all duration-300">
-                    Log In</button>
-                <button>Sign Up</button>
+                    Log In
+                </button>
+                <button class="px-6 py-2.5 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] text-[var(--color-on-primary)] rounded-xl text-sm font-bold scale-95 active:opacity-80 transition-transform shadow-lg shadow-primary/10">Sign Up</button>
             </div>
             </div>
         </nav>
         <main>
-            
-                <img src="images/elNidoPalawan.jpg" width="1500" height="1200"/>
-                <h1>Where do you want to go?</h1>
-                <span>search</span>
-                <button>Explore</button>
-                <span>Trending:</span>
-                <a>El Nido</a>
-                <a>Baguio</a>
-                <a>Coron</a>
+            <!--Section-->
+            <section class="relative h-[921px] min-h-[700px] w-full flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img class="w-full h-full object-cover brightness-[0.85]" data_alt="Picturesque wide shot of beach scene with clear water" src="images/elNidoPalawan.jpg"/>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-surface)]"></div>
+                </div>
+                <div class="relative z-10 w-full max-w-4xl px-6 text-center">
+                    <h1 class="font-headline font-extrabold text-5xl md:text-7xl text-white mb-8 tracking-tighter drop-shadow-sm">
+                        Where do you want to go?
+                    </h1>
+                    <!--Assymetrical Search Bar-->
+                    <div class="relative group max-w-2xl mx-auto">
+                    <div class="flex items-center bg-[var(--color-surface)]/70 glass-effect p-2 rounded-full shadow-2xl transition-all duration-300 focus-within:bg-[var(--color-surface)] focus-within:ring-4 focus-within:ring-[var(--color-primary)]/5">
+                    <div class="pl-6 flex items-center text-[var(--color-on-surface-variant)]">
+                        <span class="material-symbols-outlined" data-icon="search">search</span>
+                    </div>
+                        <button>Explore</button>
+                    </div>
+                    </div>
+                    <span>Trending:</span>
+                    <a>El Nido</a>
+                    <a>Baguio</a>
+                    <a>Coron</a>
+                </div>
+            </section>
             
                 <span>Hand-Picked Collections</span>
                 <h2>Designed for the descerning traveler.</h2>

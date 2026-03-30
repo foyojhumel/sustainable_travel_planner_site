@@ -1,3 +1,17 @@
+/* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Theme Configuration */
+@layer base {
+    :root {
+        --color-surface: #FAFAF5;
+        --color-on-surface: #1A1C19;
+        --color-primary-container: #0047AB;
+        --color-on-primary-container: #A5BDFF;
+        --color-primary: #00327D;
+        --color-on-primary: #FFFFFF;
+        --color-on-surface-variant: #434653;
+    }
+}
