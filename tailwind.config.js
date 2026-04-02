@@ -18,10 +18,12 @@ module.exports = {
         "secondary": "#1b6d24",
         "outline-variant": "#c3c6d5",
         "surface-container-high": "#e8e8e3",
+        "surface-container-low": "#f4f4ef",
       },
       fontFamily: {
         "headline": ["Plus Jakarta Sans"],
         "body": ["Manrope"],
+        "footer": ["Manrope"],
       },
       borderRadius: {
         "DEFAULT": "0.25rem",

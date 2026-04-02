@@ -36,3 +36,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components
+{
+    .glass-effect
+    {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+@media (max-width: 768px)
+{
+    .glass-effect 
+    {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
