@@ -68,7 +68,13 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.85);
-} 
+}
+
+/* Styling for LogIn Button */
+.editorial-gradient
+{
+    background: linear-gradient(135deg, #00327d 0%, #0047ab 100%);
+}
 
 @media (max-width: 768px)
 {
