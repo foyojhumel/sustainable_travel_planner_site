@@ -19,11 +19,13 @@ module.exports = {
         "outline-variant": "#c3c6d5",
         "surface-container-high": "#e8e8e3",
         "surface-container-low": "#f4f4ef",
+        "surface-container-highest": "#e3e3de",
       },
       fontFamily: {
         "headline": ["Plus Jakarta Sans"],
         "body": ["Manrope"],
         "footer": ["Manrope"],
+        "label": ["Manrope",]
       },
       borderRadius: {
         "DEFAULT": "0.25rem",
