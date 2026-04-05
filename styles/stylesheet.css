@@ -76,6 +76,13 @@
     background: linear-gradient(135deg, #00327d 0%, #0047ab 100%);
 }
 
+/* Styling for Sign Up Page */
+.antialiased
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @media (max-width: 768px)
 {
     .glass-effect 

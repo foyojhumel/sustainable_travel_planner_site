@@ -21,6 +21,7 @@ module.exports = {
         "surface-container-low": "#f4f4ef",
         "surface-container-highest": "#e3e3de",
         "outline": "#737784",
+        "secondary-container": "#a0f399",
       },
       fontFamily: {
         "headline": ["Plus Jakarta Sans"],
