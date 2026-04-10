@@ -6,11 +6,32 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <link href="../styles/output.css" rel="stylesheet"/>
     </head>
-    <body>
-        <span>Curated Wanderer</span>
-        <a>Destinations</a>
-        <a>Itineraries</a>
-        <span>search</span>
+    <body class="bg-surface text-on-surface font-body">
+        <nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-on-surface/70 backdrop-blur-md">
+            <div class="flex justify-between items-center px-4 py-4 max-w-screen-2xl mx-auto">
+                <div class="text-xl font-bold tracking-tight text-primary dark:text-[#dbe1ff]">
+                    Curated Wanderer
+                </div>
+                <div class="hidden md:flex gap-8">
+                <a class="font-headline uppercase tracking-widest text-primary dark:text-[#dbe1ff] border-b-2 border-primary pb-1" href="#">
+                    Destinations
+                </a>
+                <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="#">Itineraries</a>
+                </div>
+                <div class="flex items-center gap-6">
+                <div class="relative lg:block">
+                <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
+                </svg>
+                </div>
+                <div class="w-10 h-10">
+                    <a href="#">
+                    <img src="../images/profile/foyoJhumel1.jpg"/>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </nav>
         <span>Philippines</span>
         <span>chevron_right</span>
         <span>Batanes</span>
@@ -70,7 +91,7 @@
         <span>eco-rating</span>
         <span>3.5/5</span>
         <span>₱150</span>
-        <img src="../images/batanes/itbayat_island/torongan_cave_igai.png"/>
+        <img src="../images/batanes/itbayat_island/kumayakas_cave_igai.png"/>
         <div>
             <span>eco</span>
             Eco-Friendly
@@ -83,5 +104,7 @@
         <span>eco-rating</span>
         <span>3.5/5</span>
         <span>₱150</span>
+        <span>Curated Wanderer</span>
+        <p>© 2026 Curated Wanderer. Online Travel Planner.</p>
     </body>
 </html>
