@@ -37,13 +37,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components
+.glass-effect
 {
-    .glass-effect
-    {
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-    }
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 /* Styling for Hero Images */
@@ -81,6 +78,12 @@
 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styling of each article in result page */
+.editorial-shadow
+{
+    box-shadow: 0 20px 40px -15px rgba(26, 28, 25, 0.06);
 }
 
 @media (max-width: 768px)

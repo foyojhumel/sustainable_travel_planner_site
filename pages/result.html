@@ -13,97 +13,126 @@
                     Curated Wanderer
                 </div>
                 <div class="hidden md:flex gap-8">
-                <a class="font-headline uppercase tracking-widest text-primary dark:text-[#dbe1ff] border-b-2 border-primary pb-1" href="#">
-                    Destinations
-                </a>
-                <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="#">Itineraries</a>
+                    <a class="font-headline uppercase tracking-widest text-primary dark:text-[#dbe1ff] border-b-2 border-primary pb-1" href="#">
+                        Destinations
+                    </a>
+                    <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="#">Itineraries</a>
                 </div>
                 <div class="flex items-center gap-6">
-                <div class="relative lg:block">
-                <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
-                </svg>
-                </div>
-                <div class="w-10 h-10">
-                    <a href="#">
-                    <img src="../images/profile/foyoJhumel1.jpg"/>
-                    </a>
-                </div>
+                    <!--Search Bar-->
+                    <div class="relative group max-w-2xl mx-auto">
+                    <!--Div that contains input and search icon-->
+                    <div class="flex items-center bg-outline-variant/70 glass-effect p-1 rounded-full shadow-2xl transition-all duration-300 focus-within:bg-surface focus-within:ring-2 focus-within:ring-primary">
+                    <div class="pl-2 flex items-center text-on-surface-variant">
+                    <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
+                    </svg>
+                    </div>
+                    <input class="w-full bg-transparent border-0 outline-none focus:ring-0 px-2 py-1 text-on-surface placeholder:text-stone-500 font-medium" placeholder="Search province..." type="text"/>
+                    </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                        <img class="w-10 h-10 rounded-full overflow-hidden" src="../images/profile/foyoJhumel1.jpg"/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
-        <span>Philippines</span>
-        <span>chevron_right</span>
-        <span>Batanes</span>
-        <h1>Curated Batanes</h1>
-        <p>Discover the architectural heritage, crystalline waters, and sustainable sanctuaries of Batanes Islands and its surrounding coastal gems.</p>
-        <img src="../images/batanes/batan_island/vayang_rolling_hills.jpg"/>
-        <div>
-            <span>eco</span>
-            Eco-Friendly
-        </div>
-        <h3>Vayang Rolling Hills</h3>
-        <span>eco-rating</span>
-        <span>4/5</span>
-        <p>Enjoy the contrast of greenery hills against the brilliant blue sky and waves.</p>
-        <div>
-            <span>location on</span>
-            Batan Island, Batanes
-        </div>
-        <span>₱2,500<span>/ person</span>
-        <button>
-            View Details
-            <span>arrow_forward</span>
-        </button>
-        <img src="../images/batanes/sabtang_island/sabtang_lighthouse.jpg"/>
-        <h3>Sabtang Lighthouse</h3>
-        <span>eco-rating</span>
-        <span>4/5</span>
-        <p>A well-preserved heritage lighthouse beaming with light in the night that guide boats for decades.</p>
-        <div>
-            <span>location on</span>
-            Sabtand Island, Batanes
-        </div>
-        <span>₱1,200<span>/ entrance</span></span>
-        <button>
-            View Details
-            <span>arrow_forward</span>
-        </button>
-        <h2>Off the Beaten Path</h2>
-        <p>Rare destinations for the intentional traveler.</p>
-        <button>View All</button>
-        <img src="../images/batanes/batan_island/valugan_boulder_beach_chatgpt.png"/>
-        <span>Hidden Gem</span>
-        <h4>Valugan Boulder Beach</h4>
-        <div>
-            <span>location on</span>
-            Batan Island
-        </div>
-        <span>eco-rating</span>
-        <span>4/5</span>
-        <span>₱800</span>
-        <img src="../images/batanes/sabtang_island/chavayan_village_igai.png"/>
-        <h4>Chavayan Village</h4>
-        <div>
-            <span>location on</span>
-            Sabtang Island
-        </div>
-        <span>eco-rating</span>
-        <span>3.5/5</span>
-        <span>₱150</span>
-        <img src="../images/batanes/itbayat_island/kumayakas_cave_igai.png"/>
-        <div>
-            <span>eco</span>
-            Eco-Friendly
-        </div>
-        <h4>Torongan Cave</h4>
-        <div>
-            <span>location on</span>
-            Itbayat Island
-        </div>
-        <span>eco-rating</span>
-        <span>3.5/5</span>
-        <span>₱150</span>
+        <main class="pt-24 pb-16 px-8 max-w-screen-2xl mx-auto">
+            <header class="mb-12">
+                <nav class="flex items-center gap-2 text-xs uppercase tracking-widest text-outline mb-4 font-headline">
+                    <span>Philippines</span>
+                    <svg class="w-10 h-10 sm:w-3 sm:h-3 lg:w-4 lg:h-4 text-gray-700" viewBox="0 0 24 24">
+                        <path d="M9 6l6 6-6 6" fill="currentColor"/>
+                    </svg>
+                    <span class="text-primary font-bold">
+                        Batanes
+                    </span>
+                </nav>
+                <h1 class="text-5xl md:text-6xl font-headline font-bold text-primary mb-4 leading-tight">
+                    Curated Batanes
+                </h1>
+                <p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                    Discover the architectural heritage, crystalline waters, and sustainable sanctuaries of Batanes Islands and its surrounding coastal gems.
+                </p>
+            </header>
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-20">
+                <div class="lg:col-span-6 flex flex-col gap-12">
+                    <article class="group relative bg-on-primary editorial-shadow round-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 transition-all duration-500 hover:-translate-y-1">
+                        <div class="w-full md:w-2/5 relative overflow-hidden">
+                        <img alt="Vayang Rolling Hills" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="../images/batanes/batan_island/vayang_rolling_hills.jpg"/>
+                        <div class="absolute top-4 left-4 bg-secondary-container/90 backdrop-blur text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                            <span class="text-[14px]" style="font-variation-settings: 'FILL' 1;">🌎</span>
+                            Natural beauty
+                        </div>
+                        </div>
+                        <h3>Vayang Rolling Hills</h3>
+                        <span>eco-rating</span>
+                        <span>4/5</span>
+                        <p>Enjoy the contrast of greenery hills against the brilliant blue sky and waves.</p>
+                        <div>
+                            <span>location on</span>
+                            Batan Island, Batanes
+                        </div>
+                        <span>₱2,500<span>/ person</span>
+                        <button>
+                            View Details
+                            <span>arrow_forward</span>
+                        </button>
+                    </article>
+                    <img src="../images/batanes/sabtang_island/sabtang_lighthouse.jpg"/>
+                    <h3>Sabtang Lighthouse</h3>
+                    <span>eco-rating</span>
+                    <span>4/5</span>
+                    <p>A well-preserved heritage lighthouse beaming with light in the night that guide boats for decades.</p>
+                    <div>
+                        <span>location on</span>
+                        Sabtand Island, Batanes
+                    </div>
+                    <span>₱1,200<span>/ entrance</span></span>
+                    <button>
+                        View Details
+                        <span>arrow_forward</span>
+                    </button>
+                </div>
+            </section>
+            <h2>Off the Beaten Path</h2>
+            <p>Rare destinations for the intentional traveler.</p>
+            <button>View All</button>
+            <img src="../images/batanes/batan_island/valugan_boulder_beach_chatgpt.png"/>
+            <span>Hidden Gem</span>
+            <h4>Valugan Boulder Beach</h4>
+            <div>
+                <span>location on</span>
+                Batan Island
+            </div>
+            <span>eco-rating</span>
+            <span>4/5</span>
+            <span>₱800</span>
+            <img src="../images/batanes/sabtang_island/chavayan_village_igai.png"/>
+            <h4>Chavayan Village</h4>
+            <div>
+                <span>location on</span>
+                Sabtang Island
+            </div>
+            <span>eco-rating</span>
+            <span>3.5/5</span>
+            <span>₱150</span>
+            <img src="../images/batanes/itbayat_island/kumayakas_cave_igai.png"/>
+            <div>
+                <span>eco</span>
+                Eco-Friendly
+            </div>
+            <h4>Torongan Cave</h4>
+            <div>
+                <span>location on</span>
+                Itbayat Island
+            </div>
+            <span>eco-rating</span>
+            <span>3.5/5</span>
+            <span>₱150</span>
+        </main>
         <span>Curated Wanderer</span>
         <p>© 2026 Curated Wanderer. Online Travel Planner.</p>
     </body>
