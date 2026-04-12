@@ -61,8 +61,9 @@
                 <div class="lg:col-span-6 flex flex-col gap-8">
                     <article class="group relative bg-on-primary editorial-shadow rounded-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 transition-all duration-500 hover:-translate-y-1">
                         <div class="w-full md:w-2/5 relative overflow-hidden">
-                        <img alt="Vayang Rolling Hills" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="../images/batanes/batan_island/vayang_rolling_hills.jpg"/>
-                        <div class="absolute top-4 left-4 bg-secondary-container/90 backdrop-blur text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                        <!--h-96 sets the images, either portrait or landscape, to same height on all screen sizes-->
+                        <img alt="Vayang Rolling Hills" class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110" src="../images/batanes/batan_island/vayang_rolling_hills.jpg"/>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
                             <span class="text-[14px]" style="font-variation-settings: 'FILL' 1;">🌎</span>
                             Natural beauty
                         </div>
@@ -75,7 +76,7 @@
                         </h3>
                         <div class="flex items-center gap-1 text-tertiary">
                         <span style="font-variation-settings: 'FILL' 1;">🌱</span>
-                        <span class="text-sm font-bold">4</span>
+                        <span class="text-sm font-bold">4.0</span>
                         </div>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-3">
@@ -108,8 +109,8 @@
                     </article>
                     <article class="group relative bg-on-primary editorial-shadow rounded-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 transition-all duration-500 hover:-translate-y-1">
                         <div class="w-full md:w-2/5 relative overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="../images/batanes/sabtang_island/sabtang_lighthouse.jpg"/>
-                        <div class="absolute top-4 left-4 bg-secondary-container/90 backdrop-blur text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                        <img class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110" src="../images/batanes/sabtang_island/sabtang_lighthouse.jpg"/>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
                             <span class="text-[14px]" style="font-variation-settings: 'FILL' 1;">🌎</span>
                             Heritage building
                         </div>
@@ -117,60 +118,110 @@
                         <div class="p-8 flex flex-col justify-between flex-1">
                         <div>
                         <div class="flex justify-between items-start mb-2">
-                        <h3>Sabtang Lighthouse</h3>
-                        <span>eco-rating</span>
-                        <span>4/5</span>
-                        </div>
-                        <p>A well-preserved heritage lighthouse beaming with light in the night that guide boats for decades.</p>
-                        <div>
-                            <span>location on</span>
-                            Sabtand Island, Batanes
+                        <h3 class="text-2xl font-headline font-bold text-primary">
+                            Sabtang Lighthouse
+                        </h3>
+                        <div class="flex items-center gap-1 text-tertiary">
+                        <span class="font-variation-settings: 'FILL' 1;">🌱</span>
+                        <span class="text-sm font-bold">4.0</span>
                         </div>
                         </div>
-                        <span>₱1,200<span>/ entrance</span></span>
-                        <button>
+                        <p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-3">
+                            A well-preserved heritage lighthouse beaming with light in the night that guide boats for decades.
+                        </p>
+                        <div class="flex items-center gap-2 text-outline text-xs uppercase tracking-wider font-bold">
+                        <svg class="w-4 h-4 text-gray-500" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5
+                                c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5
+                                2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                            Sabtang Island, Batanes
+                        </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-6">
+                        <span class="text-secondary font-headline font-bold text-lg">
+                            ₱1,200
+                            <span class="text-xs font-normal text-outline">
+                                / entrance
+                            </span>
+                        </span>
+                        <button class="text-primary text-sm font-bold flex items-center gap-2 group/btn">
                             View Details
-                            <span>arrow_forward</span>
+                            <svg class="w-6 h-6 transition-transform group-hover/btn:translate-x-1 text-gray-700" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M3 10a1 1 0 011-1h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 11H4a1 1 0 01-1-1z"/>
+                            </svg>
                         </button>
+                        </div>
                         </div>
                     </article>
                 </div>
             </section>
-            <h2>Off the Beaten Path</h2>
-            <p>Rare destinations for the intentional traveler.</p>
-            <button>View All</button>
-            <img src="../images/batanes/batan_island/valugan_boulder_beach_chatgpt.png"/>
-            <span>Hidden Gem</span>
-            <h4>Valugan Boulder Beach</h4>
-            <div>
-                <span>location on</span>
-                Batan Island
-            </div>
-            <span>eco-rating</span>
-            <span>4/5</span>
-            <span>₱800</span>
-            <img src="../images/batanes/sabtang_island/chavayan_village_igai.png"/>
-            <h4>Chavayan Village</h4>
-            <div>
-                <span>location on</span>
-                Sabtang Island
-            </div>
-            <span>eco-rating</span>
-            <span>3.5/5</span>
-            <span>₱150</span>
-            <img src="../images/batanes/itbayat_island/kumayakas_cave_igai.png"/>
-            <div>
-                <span>eco</span>
-                Eco-Friendly
-            </div>
-            <h4>Torongan Cave</h4>
-            <div>
-                <span>location on</span>
-                Itbayat Island
-            </div>
-            <span>eco-rating</span>
-            <span>3.5/5</span>
-            <span>₱150</span>
+            <section class="mb-20">
+                <div class="flex justify-between items-end mb-4">
+                    <div>
+                        <h2 class=" text-3xl font-headline font-bold text-primary mb-2">
+                            Off the Beaten Path
+                        </h2>
+                        <p class="text-on-surface-variant">
+                            Rare destinations for the intentional traveler.
+                        </p>
+                    </div>
+                    <button class="text-primary font-bold border-b-2 border-primary pb-1 uppercase tracking-widest text-xs">
+                        View All
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <article class="group flex flex-col">
+                        <div class="aspect-[5/4] lg:aspect-[7/8] rounded-xl overflow-hidden mb-6 relative">
+                        <img class="w-full h-full object-cover transition-transform duration-700" src="../images/batanes/batan_island/valugan_boulder_beach_chatgpt.png"/>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                            <span class="text-[14px]" style="font-variation-settings: 'FILL' 1;">🌎</span>
+                            Controlled tourist activity
+                        </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                        <div>
+                        <h4 class="text-xl font-headline font-bold text-primary mb-1">
+                            Valugan Boulder Beach
+                        </h4>
+                        <div class="flex items-center gap-2 text-outline text-xs uppercase tracking-wider font-bold">
+                        <svg class="w-4 h-4 text-gray-500" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5
+                            c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5
+                            2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                            Batan Island
+                        </div>
+                        </div>
+                        <span>eco-rating</span>
+                        <span>4.0</span>
+                        <span>₱800</span>
+                        </div>
+                    </article>
+                    <img src="../images/batanes/sabtang_island/chavayan_village_igai.png"/>
+                    <h4>Chavayan Village</h4>
+                    <div>
+                        <span>location on</span>
+                        Sabtang Island
+                    </div>
+                    <span>eco-rating</span>
+                    <span>3.5/5</span>
+                    <span>₱150</span>
+                    <img src="../images/batanes/itbayat_island/kumayakas_cave_igai.png"/>
+                    <div>
+                        <span>eco</span>
+                        Eco-Friendly
+                    </div>
+                    <h4>Torongan Cave</h4>
+                    <div>
+                        <span>location on</span>
+                        Itbayat Island
+                    </div>
+                    <span>eco-rating</span>
+                    <span>3.5/5</span>
+                    <span>₱150</span>
+                </div>
+            </section>
         </main>
         <span>Curated Wanderer</span>
         <p>© 2026 Curated Wanderer. Online Travel Planner.</p>
