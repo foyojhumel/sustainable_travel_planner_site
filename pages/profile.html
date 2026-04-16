@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Curated Wanderer | Profile</title>
+        <link href="../styles/output.css" rel="stylesheet"/>
+    </head>
+    <body class="bg-surface text-on-surface font-body">
+        <!--Navigation Bar-->
+        <header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-slate-950/70 backdrop-blur-xl">
+            <nav class="flex justify-between items-center px-4 py-4 max-w-screen-2xl mx-auto">
+                <div class="font-headline text-xl font-bold tracking-tight text-primary dark:text-[#dbe1ff]">
+                    <a href="../index.html">
+                        Curated Wanderer
+                    </a>
+                </div>
+                <div class="hidden md:flex gap-8">
+                    <a class="font-headline tracking-widest uppercase text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="../pages/result.html">
+                        Destinations
+                    </a>
+                    <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#dbe1ff] hover:text-primary transition-colors duration-300" href="../pages/itinerary.html">
+                        Itinerary
+                    </a>
+                </div>
+                <div class="flex items-center gap-6">
+                    <!--Search Bar-->
+                    <div class="relative group max-w-2xl mx-auto">
+                    <!--Div that contains input and search icon-->
+                    <div class="flex items-center bg-outline-variant/70 glass-effect p-1 rounded-full shadow-2xl transition-all duration-300 focus-within:bg-surface focus-within:ring-2 focus-within:ring-primary">
+                    <div class="pl-2 flex items-center text-on-surface-variant">
+                    <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
+                    </svg>
+                    </div>
+                    <input class="w-full bg-transparent border-0 outline-none focus:ring-0 px-2 py-1 text-on-surface placeholder:text-stone-500 font-medium" placeholder="Search province..." type="text"/>
+                    </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                        <img class="w-10 h-10 rounded-full overflow-hidden" src="../images/profile/foyoJhumel1.jpg"/>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="pt-28 pb-20 max-w-screen-2xl mx-auto px-8 lg:px-12">
+            <!--Profile Header Section-->
+            <section class="flex flex-col lg:flex-row gap-12 items-start mb-20">
+                <!--Avatar Area-->
+                <div class="relative group shrink-0">
+                    <div class="w-48 h-64 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl shadow-primary/5">
+                        <img class="w-full h-full object-cover" src="../images/profile/foyoJhumel1.jpg"/>
+                    </div>
+                    <button class="absolute -bottom-4 -right-4 bg-primary text-on-primary p-4 rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2 group">
+                        <!--Edit Icon-->
+                        <svg class="text-base" height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
+                            <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
+                        </svg>
+                        <span class="text-xs font-bold uppercase tracking-widest font-label">
+                            Edit Photo
+                        </span>
+                    </button>
+                </div>
+                <h1>Jhumel Foyo</h1>
+                <p>"Curating life one journey at a time. Currently chasing the beauty across the Philippines islands."</p>
+            </section>
+            <h2>Saved Itineraries</h2>
+            <img src="../images/elNidoPalawan2.jpg"/>
+            <button>View Itinerary</button>
+            <span>Palawan • 3 Days</span>
+            <h3>El Nido</h3>
+            <img src="../images/binangonanRizal.jpg"/>
+            <button>View Itinerary</button>
+            <span>Rizal • 1 Days</span>
+            <h3>Binangonan</h3>
+            <img src="../images/kalanggamanIslandLeyte.jpg"/>
+            <button>View Itinerary</button>
+            <span>Leyte • 2 Days</span>
+            <h3>Kalanggaman Island</h3>
+        </main>
+    </body>
+</html>
