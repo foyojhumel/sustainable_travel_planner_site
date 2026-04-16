@@ -5,8 +5,7 @@
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <title>Curated Wanderer | Trip Itinerary</title>
-        <link href="../styles/output.css" rel="stylesheet"/>
-        <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=routes,places&callback=initMap" async defer></script>
+        <link href="../styles/output.css" rel="stylesheet"/>   
     </head>
     <body class="bg-surface font-body text-on-surface overflow-x-hidden">
         <nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-on-surface/70 backdrop-blur-md">
@@ -147,20 +146,77 @@
                     </div>
                 </div>
             </aside>
-            <!--
-            <img alt="map" src="../images/batanes/batan_island/house_of_dakay_chatgpt.png"/>
-            -->
             <!--Right: Map Panel-->
             <section class="flex-1 relative bg-surface-container h-[500px] md:h-auto">
                 <!--Map Visualization-->
                 <div id="map" class="absolute inset-0 z-0 bg-surface-container-highest">
-                    <!--
-                    <img class="w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMH4h5-hjwEDYyf_RmZkn6tCDjrhpi0Ao2r3__TcldXUuNaUHsgldbxvEAxLM1m3VlA5bcm0Xxr0Ci7Igh3ssk7KwO8huyZ97Fg329D8KhTY5yH9Y9VoZ3D4wUAWpWjuUbrgHWbODNRXEL_JCsaEE8DC6qU27hce-aN_6f_cka8AlHgsCzgOWKrg6Q0CFXOIhO4eu44FqQmg_4jxrpnwCTBl-Hpkhs44VR_cxlZmnOQSrIG0emF2yebZ-AqONJxyvAaJf4JTOY2kxG"/>
-                    -->
-                    <div class="absolute inset-0 map-gradient-overlay hidden md:block"></div>
+                    <div class="w-full h-96 object-cover opacity-60 mix-blend-multiply">
+                    </div>
+                    <div class="absolute inset-0 map-gradient-overlay hidden md:block">
+                    </div>
+                </div>
+                <div class="absolute top-10 right-10 z-30 hidden lg:block">
+                    <div class="bg-surface/90 backdrop-blur-md p-6 rounded-2xl editorial-shadow max-w-xl">
+                        <h4 class="font-headline font-bold text-primary text-xl mb-2">
+                            Expedition Stats
+                        </h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">
+                                Total Distance
+                            </span>
+                            <p id="totalDistance" class="text-lg font-headline font-extrabold text-secondary"></p>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">
+                                Estimated Travel Time
+                            </span>
+                            <p id="totalDuration" class="text-lg font-headline font-extrabold text-secondary"></p>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
             </section>
         </main>
-    <script src="../scripts/itinerary.js"></script>
+        <footer class="w-full mt-20 bg-[#e3e3de] dark:bg-stone-900">
+            <div class="flex flex-col md:flex-row justify-between items-center px-12 py-5 gap-8 max-w-screen-2xl mx-auto">
+                <div class="flex flex-col gap-4">
+                    <div class="hidden lg:flex font-footer font-bold text-stone-900 dark:text-stone-100 text-2xl tracking-tighter">
+                        Curated Wanderer
+                    </div>
+                    <p class="font-footer text-sm tracking-widest text-stone-500 max-w-xs">
+                        © 2026 Curated Wanderer. Online Travel Planner.
+                    </p>
+                </div>
+                <div class="flex gap-12">
+                    <div class="flex flex-col gap-2">
+                        <span class="font-footer text-sm uppercase tracking-widest text-[#00327d] font-bold mb-2">
+                            UPOU - CMSC207
+                        </span>
+                        <a class="font-footer text-sm tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-all duration-200 underline-offset-4 hover:underline" href="#">
+                            About Me
+                        </a>
+                        <a class="font-footer text-sm tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-all duration-200 underline-offset-4 hover:underline" href="#">
+                            Terms
+                        </a>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="font-footer text-sm uppercase tracking-widest text-[#00327d] font-bold mb-2">
+                            Support
+                        </span>
+                        <a class="font-footer text-sm tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-all duration-200 underline-offset-4 hover:underline" href="#">
+                            Privacy
+                        </a>
+                        <a class="font-footer text-sm tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-all duration-200 underline-offset-4 hover:underline" href="#">
+                            Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../scripts/itinerary.js"></script>
+        <!-- Load the Google Maps API with async and defer, and include all necessary libraries -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=routes,geocoding,marker&callback=initMap" async defer></script>
     </body>
 </html>
