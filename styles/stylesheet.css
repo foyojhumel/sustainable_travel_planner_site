@@ -86,6 +86,12 @@
     box-shadow: 0 20px 40px -15px rgba(26, 28, 25, 0.06);
 }
 
+/* Map styling on itinerary page */
+.map-gradient-overlay
+{
+    background: linear-gradient(to right, #fafaf5 0%, transparent 15%);
+}
+
 @media (max-width: 768px)
 {
     .glass-effect 
