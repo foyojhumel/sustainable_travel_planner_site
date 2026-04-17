@@ -1,6 +1,6 @@
-const heroImages = ["images/elNidoPalawan.jpg", "images/bantayanCebu.jpg", "images/elNidoPalawan3.jpg",
-"images/kalanggamanIslandLeyte.jpg", "images/malumpatiAntique.jpg",
-"images/mayonVolcano.jpg"
+const heroImages = ["images/palawan/el_nido/seven_commandos_beach.jpg", "images/cebu/bantayan/bantayan_island.jpg",
+"images/palawan/el_nido/nacpan_beach.jpg", "images/leyte/palompon/kalanggaman_island.jpg",
+"images/antique/pandan/malumpati_cold_spring.jpg", "images/albay/daraga/mayon_volcano.jpg"
 ];
 
 // Function to generate slides dynamically
