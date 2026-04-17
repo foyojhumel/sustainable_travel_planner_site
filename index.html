@@ -42,9 +42,8 @@
                     <div class="flex items-center bg-surface/70 glass-effect p-2 rounded-full shadow-2xl transition-all duration-300 focus-within:bg-surface focus-within:ring-4 focus-within:ring-primary/5">
                     <div class="pl-6 flex items-center text-on-surface-variant">
                         <!--Search Icon-->
-                        <svg class="w-5 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z"/>
+                        <svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                            <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
                         </svg>
                     </div>
                         <input class="w-full bg-transparent border-0 outline-none focus:ring-0 px-4 py-1 text-on-surface placeholder:text-stone-500 font-medium" placeholder="Search destinations, experiences, or hidden gems ..." type="text"/>
@@ -72,19 +71,6 @@
                             Designed for the descerning traveler.
                         </h2>
                     </div>
-                    <div class="flex gap-4">
-                        <!--Arrow Back Icon-->
-                        <button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
-                        <svg class="w-6 h-6 text-gray-600 align-middle" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M17 10a1 1 0 01-1 1H6.414l3.293 3.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L6.414 9H16a1 1 0 011 1z" clip-rule="evenodd"/>
-                        </svg>
-                        </button>
-                        <button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
-                        <svg class="w-6 h-6 text-gray-600 align-middle" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 11H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-                        </svg>
-                        </button>
-                    </div>
                 </div>
                 <!--Bento Grid Layout-->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -92,10 +78,12 @@
                     <div class="md:col-span-8 group cursor-pointer">
                         <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface-container-high mb-4">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="wideshoot view of secret beach front covered with towering mountains of sharp rocks" src="images/palawan/el_nido/secret_beach.jpg"/>
-                        <div class="absolute top-6 left-6">
-                        <span class="bg-surface/90 glass-effect px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary">
-                            Signature Experience
-                        </span>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                            <!--Eco Material Design Icon-->
+                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
+                                <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
+                            </svg>
+                            Controlled tourist activity
                         </div>
                         </div>
                         <div class="flex justify-between items-start">
@@ -107,13 +95,9 @@
                             Cristal clear water and white sand surrounded by sharp rocks.
                         </p>
                         </div>
-                        <div class="text-right">
-                        <p class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-1">
-                            Starting From
-                        </p>
-                        <p class="text-xl font-bold text-secondary font-headline">
-                            ₱1200/pp
-                        </p>
+                        <div class="text-right flex items-center gap-1 text-secondary justify-end">
+                            <span class="text-l font-variation-settings: 'FILL' 1;">🌱</span>
+                            <span class="text-xl font-bold font-headline">5.0</span>
                         </div>
                         </div>
                     </div>
@@ -122,6 +106,12 @@
                         <div class="group cursor-pointer">
                         <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high mb-2">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="sunny morning view of Mt. Taal under a clear sky." src="images/batangas/taal/taal_volcano.jpg"/>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
+                                <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
+                            </svg>
+                            Nature Conservation
+                        </div>
                         </div>
                         <div class="flex justify-between items-start">
                         <div>
@@ -132,19 +122,21 @@
                             Scenic view of Mt. Taal straight from your room window.
                         </p>
                         </div>
-                        <div class="text-right">
-                        <p class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-1">
-                            Starting From
-                        </p>
-                        <p class="mt-2 font-bold text-secondary font-headline">
-                            ₱850/pp
-                        </p>
+                        <div class="text-right flex items-center gap-1 text-secondary justify-end">
+                            <span class="text-sm font-variation-settings: 'FILL' 1;">🌱</span>
+                            <span class="text-l font-bold font-headline">4.0</span>
                         </div>
                         </div>
                         </div>
                         <div class="group cursor-pointer">
                         <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high mb-2">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="stunning aerial view of staired rice field of Banaue" src="images/ifugao/banaue/banaue_rice_terraces.jpg"/>
+                        <div class="absolute top-4 left-4 bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
+                                <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
+                            </svg>
+                            "Eight Wonder of the World"
+                        </div>
                         </div>
                         <div class="flex justify-between items-start">
                         <div>
@@ -155,13 +147,9 @@
                             Emerse in the beauty of our ancestor's hardwork.
                         </p>
                         </div>
-                        <div class="text-right">
-                        <p class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-1">
-                            Starting From
-                        </p>
-                        <p class="mt-2 font-bold text-secondary font-headline">
-                            ₱920
-                        </p>
+                        <div class="text-right flex items-center gap-1 text-secondary justify-end">
+                            <span class="text-sm font-variation-settings: 'FILL' 1;">🌱</span>
+                            <span class="text-l font-bold font-headline">5.0</span>
                         </div>
                         </div>
                         </div>
