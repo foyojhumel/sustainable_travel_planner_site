@@ -38,7 +38,7 @@ function initHeroSlideshow(images) {
 // Start the slideshow when the page loads
 document.addEventListener('DOMContentLoaded', () => {
 //initHeroSlideshow(heroImages);
-    fetch('http://localhost/sustainable_travel_planner_site/php/getHeroImages.php')
+    fetch('php/getHeroImages.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
