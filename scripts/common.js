@@ -40,7 +40,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
                 return;
             }
             dropdown.innerHTML = suggestions.map(s => `
-                <div class="px-4 py-3 hover:bg-surface-container-high cursor-pointer border-b border-outline-variant/20" data-region-id="${s.province_id}">
+                <div class="px-4 py-3 hover:bg-surface-container-high cursor-pointer border-b border-outline-variant/20" data-province-id="${s.province_id}">
                     ${escapeHtml(s.label)}
                 </div>
             `).join('');
@@ -58,7 +58,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
     }
 
     function goToResultPage(provinceId) {
-        window.location.href = `results.php?province_id=${provinceId}`;
+        window.location.href = `pages/results.html?province_id=${provinceId}`;
     }
 
     function performSearch() {
