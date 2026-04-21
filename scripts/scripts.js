@@ -104,97 +104,12 @@ function createDestinationCard(dest) {
     `;
 }
 
-// Function to escape HTML special characters to prevent XSS
-function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-    });
-}
-
-// Search autocomplete functionality
-const searchInput = document.getElementById('searchInput');
-const suggestionsDropdown = document.getElementById('suggestionsDropdown');
-let debounceTimer;
-
-searchInput.addEventListener('input', function() {
-    clearTimeout(debounceTimer);
-    const query = this.value.trim();
-    if (query.length < 2) {
-        suggestionsDropdown.classList.add('hidden');
-        return;
-    }
-    debounceTimer = setTimeout(() => fetchSuggestions(query), 300);
-});
-
-async function fetchSuggestions(query) {
-    try {
-        const response = await fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
-        const suggestions = await response.json();
-        if (suggestions.length === 0) {
-            suggestionsDropdown.classList.add('hidden');
-            return;
-        }
-        suggestionsDropdown.innerHTML = suggestions.map(s => `
-            <div class="px-4 py-3 hover:bg-surface-container-high cursor-pointer border-b border-outline-variant/20" data-region-id="${s.region_id}">
-                ${escapeHtml(s.label)}
-            </div>
-        `).join('');
-        suggestionsDropdown.classList.remove('hidden');
-
-        // Add click handlers to each suggestions
-        document.querySelectorAll('#suggestionsDropdown > div').forEach(el => {
-            el.addEventListener('click', () => {
-                const regionId = el.dataset.regionId;
-                goToResultPage(regionId);
-            });
-        });
-    }   catch (error) {
-            console.error('Error fetching suggestions:', error);
-    }
-}
-
-function goToResultPage(regionId) {
-    window.location.href = `results.html?region_id=${regionId}`;
-}
-
-// Handle Enter key or Explore button click
-function performSearch() {
-    const query = searchInput.value.trim();
-    if (query === '') return;
-    // For direct Enter without selecting a suggestion, region_id must be resolved.
-    // Option: call an API to resolve the query to a region_id, then redirect.
-    // For simplicity, a message can be shown or use the first suggestion.
-    fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`)
-        .then(r => r.json())
-        .then(suggestions => {
-            if (suggestions.length > 0) {
-                goToResultPage(suggestions[0].region_id);
-            } else {
-                alert('No region found for "' + query + '". Please try a different search term.');
-            }
-        });
-}
-
-searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') performSearch();
-});
-document.getElementById('searchButton').addEventListener('click', performSearch);
-
-// Helper to hide dropdown when clicking outside
-document.addEventListener('click', function(e) {
-    if (!searchInput.contains(e.target) && !suggestionsDropdown.contains(e.target)) {
-        suggestionsDropdown.classList.add('hidden');
-    }
-});
-
-// Start the slideshow when the page loads
+// Startup code to initialize search suggestions and hero slideshow
 document.addEventListener('DOMContentLoaded', () => {
-    loadTopDestinations();
-//initHeroSlideshow(heroImages);
+    // Initialize search suggestions
+    initSearchSuggestions('searchInput', 'suggestionsDropdown', 'searchButton');
+    
+    // Fetch hero images from the server and initialize the slideshow
     fetch('php/getHeroImages.php')
         .then(response => {
             if (!response.ok) {
@@ -222,4 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
             initHeroSlideshow(fallbackImages);
         });
+
+    // Load top destinations for the bento grid
+    loadTopDestinations();
 });
