@@ -35,6 +35,8 @@ function initHeroSlideshow(images) {
     }, 5000); // Change image every 5 seconds
 }
 
+// Function to load top destinations from the server and display them to
+//  bento grid layout
 function loadTopDestinations() {
     const container = document.getElementById('topDestinationsGrid');
     if (!container) {
@@ -63,6 +65,7 @@ function loadTopDestinations() {
         });
 }
 
+// Function to create HTML for a single destination card
 function createDestinationCard(dest) {
     const ecoIcon = `<svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
                         <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
@@ -101,6 +104,7 @@ function createDestinationCard(dest) {
     `;
 }
 
+// Function to escape HTML special characters to prevent XSS
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
@@ -110,6 +114,82 @@ function escapeHtml(str) {
         return m;
     });
 }
+
+// Search autocomplete functionality
+const searchInput = document.getElementById('searchInput');
+const suggestionsDropdown = document.getElementById('suggestionsDropdown');
+let debounceTimer;
+
+searchInput.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    const query = this.value.trim();
+    if (query.length < 2) {
+        suggestionsDropdown.classList.add('hidden');
+        return;
+    }
+    debounceTimer = setTimeout(() => fetchSuggestions(query), 300);
+});
+
+async function fetchSuggestions(query) {
+    try {
+        const response = await fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
+        const suggestions = await response.json();
+        if (suggestions.length === 0) {
+            suggestionsDropdown.classList.add('hidden');
+            return;
+        }
+        suggestionsDropdown.innerHTML = suggestions.map(s => `
+            <div class="px-4 py-3 hover:bg-surface-container-high cursor-pointer border-b border-outline-variant/20" data-region-id="${s.region_id}">
+                ${escapeHtml(s.label)}
+            </div>
+        `).join('');
+        suggestionsDropdown.classList.remove('hidden');
+
+        // Add click handlers to each suggestions
+        document.querySelectorAll('#suggestionsDropdown > div').forEach(el => {
+            el.addEventListener('click', () => {
+                const regionId = el.dataset.regionId;
+                goToResultPage(regionId);
+            });
+        });
+    }   catch (error) {
+            console.error('Error fetching suggestions:', error);
+    }
+}
+
+function goToResultPage(regionId) {
+    window.location.href = `results.html?region_id=${regionId}`;
+}
+
+// Handle Enter key or Explore button click
+function performSearch() {
+    const query = searchInput.value.trim();
+    if (query === '') return;
+    // For direct Enter without selecting a suggestion, region_id must be resolved.
+    // Option: call an API to resolve the query to a region_id, then redirect.
+    // For simplicity, a message can be shown or use the first suggestion.
+    fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`)
+        .then(r => r.json())
+        .then(suggestions => {
+            if (suggestions.length > 0) {
+                goToResultPage(suggestions[0].region_id);
+            } else {
+                alert('No region found for "' + query + '". Please try a different search term.');
+            }
+        });
+}
+
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') performSearch();
+});
+document.getElementById('searchButton').addEventListener('click', performSearch);
+
+// Helper to hide dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !suggestionsDropdown.contains(e.target)) {
+        suggestionsDropdown.classList.add('hidden');
+    }
+});
 
 // Start the slideshow when the page loads
 document.addEventListener('DOMContentLoaded', () => {
