@@ -58,7 +58,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
     }
 
     function goToResultPage(provinceId) {
-        window.location.href = `pages/results.html?province_id=${provinceId}`;
+        window.location.href = `pages/result.html?province_id=${provinceId}`;
     }
 
     function performSearch() {

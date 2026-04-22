@@ -43,14 +43,13 @@ while ($row = $topResult->fetch_assoc()) {
     $topDestinations[] = $row;
 }
 
-// 3. Hidden gems (lower rating of < 4.0, limit 6)
+// 3. Off Beaten Path (lower rating of < 4.0, limit 6)
 $sqlOff = "SELECT d.destination_id, d.destination, d.eco_indicator, d.rating,
         d.path, d.description, l.location, l.location_id
         FROM destination d
         JOIN location l ON d.location_id = l.location_id
         WHERE l.province_id = ? AND d.rating < 4.0
-        ORDER BY d.rating DESC
-        LIMIT 6";
+        ORDER BY d.rating DESC";
 $stmtOff = $conn->prepare($sqlOff);
 $stmtOff->bind_param("i", $province_id);
 $stmtOff->execute();
@@ -70,7 +69,7 @@ $response = [
         'description' => $province['description']
     ],
     'top_destinations' => $topDestinations,
-    'hidden_gems' => $offDestinations
+    'off_beaten_path' => $offDestinations
 ];
 
 header('Content-Type: application/json');
