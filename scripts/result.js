@@ -80,7 +80,7 @@ function createDestinationCard(dest, showButton = true) {
                             </svg>
                                 ${escapeHtml(dest.location)}
                         </div>
-                        ${showButton ? `<button onclick="goToItinerary(${dest.location_id})" class="text-primary text-sm font-bold flex items-center gap-2 group/btn">
+                        ${showButton ? `<button onclick="goToItinerary(${dest.location_id}, ${dest.destination_id})" class="text-primary text-sm font-bold flex items-center gap-2 group/btn">
                             View Details
                             <svg class="w-6 h-6 transition-transform group-hover/btn:translate-x-1 text-gray-700" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M3 10a1 1 0 011-1h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 11H4a1 1 0 01-1-1z"/>
@@ -96,7 +96,7 @@ function createDestinationCard(dest, showButton = true) {
 // Off the beaten path card creation function
 function createOffBeatCard(dest) {
     return `
-        <div onclick="goToItinerary(${dest.location_id})" class="w-full md:w-1/3 flex-shrink-0 px-4">
+        <div onclick="goToItinerary(${dest.location_id}, ${dest.destination_id})" class="w-full md:w-1/3 flex-shrink-0 px-4">
             <article class="group flex flex-col">
                 <div class="aspect-[5/4] md:aspect-[7/8] rounded-xl overflow-hidden mb-4 relative">
                     <img src="${dest.path}" alt="${dest.description}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
@@ -180,8 +180,8 @@ function initCarousel(trackElement, prevBtnId, nextBtnId) {
     updateCarousel(); // Initial setup
 }
 
-function goToItinerary(locationId) {
-    window.location.href = `itinerary.html?location_id=${locationId}`;
+function goToItinerary(locationId, destinationId) {
+    window.location.href = `itinerary.html?location_id=${locationId}&destination_id=${destinationId}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
