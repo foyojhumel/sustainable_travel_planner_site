@@ -1,5 +1,19 @@
 // Shared across multiple pages
 
+
+// --- Dynamic base path detection ---
+// This allows the script to work correctly whether it's included in pages at the root level or in subdirectories.
+function getBasePath() {
+    const scripts = document.getElementsByTagName('script');
+    const currentScript = scripts[scripts.length - 1];
+    const src = currentScript.src;
+    // Removes everything after the last '/' to get the base path
+    const base = src.substring(0, src.lastIndexOf('/scripts/'));
+    return base;
+}
+const BASE_PATH = getBasePath();
+
+
 // Helper: Escape HTML special characters to prevent XSS
 function escapeHtml(str) {
     if (!str) return '';
@@ -33,7 +47,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
 
     async function fetchSuggestions(query, dropdown) {
         try {
-            const response = await fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
+            const response = await fetch(`${BASE_PATH}/php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
             const suggestions = await response.json();
             if (!suggestions.length) {
                 dropdown.classList.add('hidden');
@@ -58,13 +72,13 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
     }
 
     function goToResultPage(provinceId) {
-        window.location.href = `pages/result.html?province_id=${provinceId}`;
+        window.location.href = `${BASE_PATH}/pages/result.html?province_id=${provinceId}`;
     }
 
     function performSearch() {
         const query = searchInput.value.trim();
         if (!query) return;
-        fetch(`php/searchSuggestions.php?q=${encodeURIComponent(query)}`)
+        fetch(`${BASE_PATH}/php/searchSuggestions.php?q=${encodeURIComponent(query)}`)
             .then(r => r.json())
             .then(suggestions => {
                 if (suggestions.length) {

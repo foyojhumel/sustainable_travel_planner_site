@@ -32,8 +32,12 @@
                         <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
                     </svg>
                     </div>
-                    <input class="w-full bg-transparent border-0 outline-none focus:ring-0 px-2 py-1 text-on-surface placeholder:text-stone-500 font-medium" placeholder="Search province..." type="text"/>
+                    <input type="text" id="searchInput" class="w-full bg-transparent border-0 outline-none focus:ring-0 px-2 py-1 text-on-surface placeholder:text-stone-500 font-medium" placeholder="Search province..."/>
                     </div>
+                    </div>
+                    <!--Search Suggestions Dropdown-->
+                    <div id="suggestionsDropdown" class="absolute right-10 top-10 mt-2 bg-surface rounded-xl shadow-lg z-30 hidden">
+                        <!--Populated dynamically by JavaScript-->
                     </div>
                     <div>
                         <a href="#">
@@ -56,7 +60,6 @@
                     <span id="provinceName"></span>
                 </h1>
                 <p id="provinceDescription" class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
-                    <!--Discover the architectural heritage, crystalline waters, and sustainable sanctuaries of Batanes Islands and its surrounding coastal gems.-->
                 </p>
             </header>
             <section id="topDestinationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-20">

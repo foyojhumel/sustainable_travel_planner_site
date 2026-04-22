@@ -184,4 +184,10 @@ function goToItinerary(locationId) {
     window.location.href = `itinerary.html?location_id=${locationId}`;
 }
 
-document.addEventListener('DOMContentLoaded', loadProvinceData);
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize search suggestions
+    initSearchSuggestions('searchInput', 'suggestionsDropdown');
+
+    // Load province data and render the page
+    loadProvinceData();
+});

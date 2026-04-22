@@ -28,7 +28,7 @@ $sqlTop = "SELECT d.destination_id, d.destination, d.eco_indicator, d.rating,
             d.path, d.description, l.location, l.location_id
             FROM destination d
             JOIN location l ON d.location_id = l.location_id
-            WHERE l.province_id = ? AND d.rating >= 4.0
+            WHERE l.province_id = ? AND d.rating >= 4.0 AND d.path IS NOT NULL
             ORDER BY d.rating DESC
             LIMIT 6";
 $stmtTop = $conn->prepare($sqlTop);
@@ -48,7 +48,7 @@ $sqlOff = "SELECT d.destination_id, d.destination, d.eco_indicator, d.rating,
         d.path, d.description, l.location, l.location_id
         FROM destination d
         JOIN location l ON d.location_id = l.location_id
-        WHERE l.province_id = ? AND d.rating < 4.0
+        WHERE l.province_id = ? AND d.rating < 4.0 AND d.path IS NOT NULL
         ORDER BY d.rating DESC";
 $stmtOff = $conn->prepare($sqlOff);
 $stmtOff->bind_param("i", $province_id);
