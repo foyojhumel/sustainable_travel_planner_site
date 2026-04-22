@@ -72,7 +72,7 @@ function createDestinationCard(dest) {
                     </svg>`;
 
     return `
-        <div class="md:col-span-4 gap-6">
+        <div onclick="goToItinerary(${dest.location_id})" class="md:col-span-4 gap-6">
             <div class="group cursor-pointer">
                 <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high mb-2">
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
@@ -102,6 +102,10 @@ function createDestinationCard(dest) {
             </div>
         </div>
     `;
+}
+
+function goToItinerary(locationId) {
+    window.location.href = `pages/itinerary.html?location_id=${locationId}`;
 }
 
 // Startup code to initialize search suggestions and hero slideshow
