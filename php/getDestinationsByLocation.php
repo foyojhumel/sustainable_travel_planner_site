@@ -10,7 +10,7 @@ if (!$location_id) {
     exit;
 }
 
-// 1. Provide info (location name and description)
+// 1. Get location info (location name and description)
 $sqlLocation = "SELECT location, description FROM location WHERE location_id = ?";
 $stmtLoc = $conn->prepare($sqlLocation);
 $stmtLoc->bind_param("i", $location_id);
@@ -23,12 +23,14 @@ if (!$location) {
     exit;
 }
 
-// 2. Destinations in this location
-$sqlDestinations = "SELECT destination_id, destination, eco_indicator, rating, path, description
-                FROM destination
-                WHERE location_id = ? AND path IS NOT NULL
-                ORDER BY rating DESC";
-
+// 2. Get all destinations in this location
+$sqlDestinations = "SELECT d.destination_id, d.destination, d.eco_indicator, d.rating,
+                d.path, d.description,
+                CONCAT(d.destination, ', ', l.location, ', ', p.province, ', Philippines') AS address
+                FROM destination d
+                JOIN location l ON d.location_id = l.location_id
+                JOIN province p ON l.province_id = p.province_id
+                WHERE d.location_id = ? AND path IS NOT NULL";
 $stmtDests = $conn->prepare($sqlDestinations);
 $stmtDests->bind_param("i", $location_id);
 $stmtDests->execute();

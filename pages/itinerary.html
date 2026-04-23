@@ -35,126 +35,32 @@
             </div>
         </nav>
         <!--Main Content Shell-->
-        <main class="pt-24 min-h-screen flex flex-col md:flex-row">
+        <main class="pt-20 h-screen flex flex-col md:flex-row overflow-hidden">
             <!--Left: Timeline/Itinerary Panel-->
-            <aside class="w-full md:w-[550px] lg:w-[650px] bg-surface-container-low px-6 md:px-10 py-8 overflow-y-auto max-h[calc(100vh-96px)]">
+            <aside class="w-full md:w-[550px] lg:w-[650px] bg-surface-container-low px-6 md:px-10 py-8 overflow-y-auto h-full">
                 <div class="mb-10">
                     <span class="font-headline uppercase tracking-widest text-[11px] text-secondary font-bold mb-2 block">
                         Suggested Expedition
                     </span>
                     <h1 class="font-headline text-4xl font-extrabold text-primary leading-tight tracking-tight mb-4">
-                        Batan Island Odyssey
+                        <span id="locationName" class="font-headline text-4xl font-extrabold text-primary leading_tight tracking-tight"></span>
+                        <span>Odyssey</span>
                     </h1>
-                    <p class="text-on-surface-variant text-sm leading-relaxed max-w-sm">
-                        A 1-day curated journey through the coastal cliffs and azure waters of Batan Island.
+                    <p class="text-on-surface-variant leading-relaxed max-w-sm">
+                        <span>A 1-day curated journey through</span>
+                        <span id="locationDesc" class="text-on-surface-variant leading-relaxed max-w-sm"></span>
                     </p>
                 </div>
                 <!--Timeline-->
                 <div class="relative">
                     <!--Vertical Line-->
                     <div class="absolute left-4 top-2 bottom-0 w-[1px] bg-outline-variant/70"></div>
-                    <!--First Itinerary-->
-                    <div class="relative pl-12 mb-12">
-                        <!--Sailing Icon-->
-                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10">
-                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
-                                <path d="m120-420 320-460v460H120Zm153-80h87v-125l-87 125Zm227 80q12-28 26-98t14-142q0-72-13.5-148T500-920q61 18 121.5 67t109 117q48.5 68 79 149.5T840-420H500Zm104-80h148q-17-77-55.5-141T615-750q2 21 3.5 43.5T620-660q0 47-4.5 87T604-500ZM360-200q-36 0-67-17t-53-43q-14 15-30.5 28T173-211q-35-26-59.5-64.5T80-360h800q-9 46-33.5 84.5T787-211q-20-8-36.5-21T720-260q-23 26-53.5 43T600-200q-36 0-67-17t-53-43q-22 26-53 43t-67 17ZM80-40v-80h40q32 0 62.5-10t57.5-30q27 20 57.5 29.5T360-121q32 0 62-9.5t58-29.5q27 20 57.5 29.5T600-121q32 0 62-9.5t58-29.5q28 20 58 30t62 10h40v80h-40q-31 0-61-7.5T720-70q-29 15-59 22.5T600-40q-31 0-61-7.5T480-70q-29 15-59 22.5T360-40q-31 0-61-7.5T240-70q-29 15-59 22.5T120-40H80Zm280-460Zm244 0Z"/>
-                            </svg>
-                        </div>
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-headline font-bold text-xl text-primary">
-                                Vayang Rolling Hills
-                            </h3>
-                        </div>
-                        <div class="bg-on-primary p-5 rounded-xl editorial-shadow">
-                            <!--Eco-Indicator and Eco-Rating-->
-                            <div class="flex justify-between mb-2">
-                                <div class="bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                                    <!--Eco Icon-->
-                                    <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
-                                        <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
-                                    </svg>
-                                    Natural beauty
-                                </div>
-                                <div class="text-right flex items-center gap-1 text-secondary justify-end">
-                                    <span class="font-variation-settings: 'FILL' 1;">🌱</span>
-                                    <span class="text-sm font-bold">4.0</span>
-                                </div>
-                            </div>
-                            <img class="w-full h-40 object-cover rounded-lg mb-2" src="../images/batanes/batan_island/vayang_rolling_hills.jpg"/>
-                            <p class="text-sm text-on-surface-variant">
-                                Panoramic view of Mt. Iraya and the sea.
-                            </p>
-                        </div>
-                    </div>
-                    <!--Second Itinerary-->
-                    <div class="relative pl-12 mb-12">
-                        <!--Motor Icon-->
-                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/50 flex items-center justify-center z-10">
-                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#00327d">
-                                <path d="M428-520h-70 150-80ZM200-200q-83 0-141.5-58.5T0-400q0-83 58.5-141.5T200-600h464l-80-80H440v-80h143q16 0 30.5 6t25.5 17l139 139q78 6 130 63t52 135q0 83-58.5 141.5T760-200q-83 0-141.5-58.5T560-400q0-18 2.5-35.5T572-470L462-360h-66q-14 70-69 115t-127 45Zm560-80q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm-560 0q38 0 68.5-22t43.5-58H200v-80h112q-13-36-43.5-58T200-520q-50 0-85 35t-35 85q0 50 35 85t85 35Zm198-160h30l80-80H358q15 17 25 37t15 43Z"/>
-                            </svg>
-                        </div>
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-headline font-bold text-xl text-primary">
-                                Alapad Pass
-                            </h3>
-                        </div>
-                        <div class="bg-on-primary p-5 rounded-xl editorial-shadow">
-                            <div class="flex justify-between mb-2">
-                                <div class="bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                                    <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
-                                        <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
-                                    </svg>
-                                    Rock formation
-                                </div>
-                                <div class="text-right flex items-center gap-1 text-secondary justify-end">
-                                    <span class="font-variation-settings: 'FILL' 1;">🌱</span>
-                                    <span class="text-sm font-bold">4.0</span>
-                                </div>
-                            </div>
-                            <img class="w-full h-40 object-cover rounded-lg mb-2" src="../images/batanes/batan_island/alapad_pass.jpg"/>
-                            <p class="text-sm text-on-surface-variant">
-                                Panoramic view of Mt. Iraya and the sea.
-                            </p>
-                        </div>
-                    </div>
-                    <!--Third Itinerary-->
-                    <div class="relative pl-12 mb-12">
-                        <!--Motor Icon-->
-                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/50 flex items-center justify-center z-10">
-                            <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#00327d">
-                                <path d="M428-520h-70 150-80ZM200-200q-83 0-141.5-58.5T0-400q0-83 58.5-141.5T200-600h464l-80-80H440v-80h143q16 0 30.5 6t25.5 17l139 139q78 6 130 63t52 135q0 83-58.5 141.5T760-200q-83 0-141.5-58.5T560-400q0-18 2.5-35.5T572-470L462-360h-66q-14 70-69 115t-127 45Zm560-80q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm-560 0q38 0 68.5-22t43.5-58H200v-80h112q-13-36-43.5-58T200-520q-50 0-85 35t-35 85q0 50 35 85t85 35Zm198-160h30l80-80H358q15 17 25 37t15 43Z"/>
-                            </svg>
-                        </div>
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-headline font-bold text-xl text-primary">
-                                Basco Lighthouse
-                            </h3>
-                        </div>
-                        <div class="bg-on-primary p-5 rounded-xl editorial-shadow">
-                            <div class="flex justify-between mb-2">
-                                <div class="bg-eco-indicator/90 backdrop-blur text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                                    <svg height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
-                                        <path d="M216-176q-45-45-70.5-104T120-402q0-63 24-124.5T222-642q35-35 86.5-60t122-39.5Q501-756 591.5-759t202.5 7q8 106 5 195t-16.5 160.5q-13.5 71.5-38 125T684-182q-53 53-112.5 77.5T450-80q-65 0-127-25.5T216-176Zm112-16q29 17 59.5 24.5T450-160q46 0 91-18.5t86-59.5q18-18 36.5-50.5t32-85Q709-426 716-500.5t2-177.5q-49-2-110.5-1.5T485-670q-61 9-116 29t-90 55q-45 45-62 89t-17 85q0 59 22.5 103.5T262-246q42-80 111-153.5T534-520q-72 63-125.5 142.5T328-192Zm0 0Zm0 0Z"/>
-                                    </svg>
-                                    Heritage building
-                                </div>
-                                <div class="text-right flex items-center gap-1 text-secondary justify-end">
-                                    <span class="font-variation-settings: 'FILL' 1;">🌱</span>
-                                    <span class="text-sm font-bold">4.0</span>
-                                </div>
-                            </div>
-                            <img class="w-full h-40 object-cover rounded-lg mb-2" src="../images/batanes/batan_island/basco_lighthouse_chatgpt.png"/>
-                            <p class="text-sm text-on-surface-variant">
-                                Batanes beach tourist spot.
-                            </p>
-                        </div>
-                    </div>
+                    <div id="itineraryCards" class="relative space-y-12"></div>
+                        <!--Itinerary Cards to be populated by Javascript-->
                 </div>
             </aside>
             <!--Right: Map Panel-->
-            <section class="flex-1 relative bg-surface-container h-[500px] md:h-auto">
+            <section class="flex-1 relative bg-surface-container">
                 <!--Map Visualization-->
                 <div id="map" class="absolute inset-0 z-0 bg-surface-container-highest">
                     <div class="w-full h-96 object-cover opacity-60 mix-blend-multiply">
@@ -222,8 +128,9 @@
                 </div>
             </div>
         </footer>
+        <script src="../scripts/common.js"></script>
         <script src="../scripts/itinerary.js"></script>
         <!-- Load the Google Maps API with async and defer, and include all necessary libraries -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=routes,geocoding,marker&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&libraries=routes,geocoding,marker&callback=initMap" loading="async" async defer></script>
     </body>
 </html>
