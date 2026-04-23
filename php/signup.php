@@ -13,13 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars(trim($_POST['name']));
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $confirm = $_POST['confirm_password'];
 
     $errors = [];
     if (empty($name)) $errors[] = "Name is required.";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
     if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters.";
-    if ($password !== $confirm_password) $errors[] = "Passwords do not match.";
+    if ($password !== $confirm) $errors[] = "Passwords do not match.";
 
     // Redirects back to sign up page when there is any error
     if (!empty($errors)) {
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     */
     $hash = password_hash($password, PASSWORD_DEFAULT);
-    $insertSql = "INSERT INTO users (name, email, password_hash) VALUES (? ? ?)";
+    $insertSql = "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)";
     $insertStmt = $pdo->prepare($insertSql);
     try {
         $insertStmt->execute([$name, $email, $hash]);
