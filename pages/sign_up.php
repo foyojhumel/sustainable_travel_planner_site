@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -39,6 +40,22 @@
                         </p>
                     </header>
                     <form action="../php/signup.php" method="POST" class="space-y-6">
+                        <!--Display registration errors, if there is any-->
+                        <?php if (isset($_SESSION['signup_errors'])): ?>
+                            <div class="bg-red-100 text-red-700 p-3 rounded-xl mb-4">
+                                <?php foreach ($_SESSION['signup_errors'] as $error): ?>
+                                    <p><?php echo htmlspecialchars($error); ?></p>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php unset($_SESSION['signup_errors']); ?>
+                        <?php endif; ?>
+                        <!--Display account creation success message-->
+                        <?php if (isset($_SESSION['signup_success'])): ?>
+                            <div class="bg-green-100 text-green-700 p-3 rounded-xl mb-4">
+                                <?php echo htmlspecialchars($_SESSION['signup_success']); ?>
+                            </div>
+                            <?php unset($_SESSION['signup_success']); ?>
+                        <?php endif; ?>
                         <!--Name Field-->
                         <div class="space-y-1.5">
                         <label class="font-label text-xs uppercase tracking-widest font-semibold text-on-surface-variant ml-1" for="full_name">

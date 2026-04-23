@@ -59,7 +59,12 @@
                 <!--Display login success message-->
                 <?php if (isset($_SESSION['registration_success'])): ?>
                     <div class="bg-green-100 text-green-700 p-3 rounded-xl mb-4">
-                        <?php echo htmlspecialchars($_SESSION['login success']); ?>
+                        <?php
+                        if (isset($_SESSION['registration_success'])) {
+                            echo htmlspecialchars($_SESSION['registration_success']);
+                            unset($_SESSION['registration_success']);
+                        }
+                        ?>
                         <?php unset($_SESSION['registration_success']); ?>
                     </div>
                 <?php endif; ?>
