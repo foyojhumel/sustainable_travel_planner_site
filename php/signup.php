@@ -21,37 +21,75 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters.";
     if ($password !== $confirm_password) $errors[] = "Passwords do not match.";
 
+    // Redirects back to sign up page when there is any error
+    if (!empty($errors)) {
+        $_SESSION['signup_errors'] = $errors;
+        header("Location: " . BASE_URL . "/pages/sign_up.php");
+        exit();
+    }
+    
     // Check if email already exists
-    if (empty($errors)) {
-        $check_sql = "SELECT user_id FROM users WHERE email = ?";
-        $check_stmt = $conn->prepare($check_sql);
-        $check_stmt->bind_param("s", $email);
-        $check_stmt->execute();
-        $check_stmt->store_result();
+    /*
+    $check_sql = "SELECT user_id FROM users WHERE email = ?";
+    $check_stmt = $conn->prepare($check_sql);
+    $check_stmt->bind_param("s", $email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
 
-        if ($check_stmt->num_rows > 0) {
-            $errors[] = "Email is already registered.";
-        }
+    if ($check_stmt->num_rows > 0) {
+        $errors[] = "Email is already registered. Please try other email.";
         $check_stmt->close();
+        // Redirect back to sign up page with error
+        $_SESSION['signup_errors'] = $errors;
+        header("Location: " . BASE_URL . "/pages/sign_up.php");
+        exit();
+    }
+    $check_stmt->close();
+    */
+    $checkSql = "SELECT user_id FROM users WHERE email = ?";
+    $checkStmt = $pdo->prepare($checkSql);
+    $checkStmt->execute([$email]);
+    if ($checkStmt->fetch()) {
+        $errors[] = "Email is already registered. Please try other email.";
+        $_SESSION['signup_errors'] = $errors;
+        header("Location: " . BASE_URL . "/pages/sign_up.php");
+        exit();
     }
 
     // If no errors, proceed with registration
-    if (empty($errors)) {
-        $password_hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $name, $email, $password_hash);
+    /*
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $password_hash);
 
-        if ($stmt->execute()) {
-            $_SESSION['registration_success'] = "Registration successful! Please log in.";
-            header("Location: " . BASE_URL . "/pages/log_in.html");
-            exit();
-        } else {
-            $errors[] = "Something went wrong. Please try again.";
-        }
-        $stmt->close();
+    if ($stmt->execute()) {
+        $_SESSION['registration_success'] = "Registration successful! Please log in.";
+        header("Location: " . BASE_URL . "/pages/log_in.php");
+        exit();
+    } else {
+        $errors[] = "Something went wrong. Please try again.";
+        $_SESSION['signup_errors'] = $errors;
+        header("Location: " . BASE_URL . "/pages/sign_up.php");
+        exit();
     }
+    $stmt->close();
     $conn->close();
+    */
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $insertSql = "INSERT INTO users (name, email, password_hash) VALUES (? ? ?)";
+    $insertStmt = $pdo->prepare($insertSql);
+    try {
+        $insertStmt->execute([$name, $email, $hash]);
+        $_SESSION['registration_success'] = "Registration successful! Please log in.";
+        header("Location: " . BASE_URL . "/pages/log_in.php");
+        exit();
+    } catch (PDOException $e) {
+        $errors[] = "Database error: " . $e->getMessage();
+        $_SESSION['signup_errors'] = $errors;
+        header("Location: " . BASE_URL . "/pages/sign_up.php");
+        exit();
+    }
 }
 
 ?>
