@@ -110,7 +110,7 @@
             <footer class="mt-8 text-center">
                 <p class="text-on-surface-variant font-label text-sm">
                     Don't have an account?
-                <button class="text-secondary font-bold hover:underline underline-offset-4 ml-1" onclick="window.location.href='../pages/sign_up.html'">
+                <button class="text-secondary font-bold hover:underline underline-offset-4 ml-1" onclick="window.location.href='../pages/sign_up.php'">
                     Create an account
                 </button>
                 </p>
