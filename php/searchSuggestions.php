@@ -1,11 +1,14 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once 'dbConnect.php'; // pulls in the database connection from dbConnect.php
 
 $query = isset($_GET['q']) ? trim($_GET['q']) : '';
 if (strlen($query) < 2) {
+    header('Content-Type: application/json');
     echo json_encode([]);
-    $conn->close();
     exit;
 }
 
@@ -17,6 +20,9 @@ $sqlProvinces = "SELECT province_id, province, 'province' as type, NULL as locat
                 FROM province
                 WHERE province LIKE ?
                 LIMIT 5";
+$stmtProv = $pdo->prepare($sqlProvinces);
+$stmtProv->execute([$like]);
+$provinces = $stmtProv->fetchAll(PDO::FETCH_ASSOC);
 
 // Search locations (include parent province name)
 $sqlLocations = "SELECT l.location_id, l.location as location_name, p.province as province_name,
@@ -25,6 +31,9 @@ $sqlLocations = "SELECT l.location_id, l.location as location_name, p.province a
                  JOIN province p ON l.province_id = p.province_id
                  WHERE l.location LIKE ?
                  LIMIT 5";
+$stmtLoc = $pdo->prepare($sqlLocations);
+$stmtLoc->execute([$like]);
+$locations = $stmtLoc->fetchAll(PDO::FETCH_ASSOC);
 
 // Search destinations (include parent location and province names)
 $sqlDestinations = "SELECT d.destination_id, d.destination as destination_name, l.location as location_name,
@@ -34,21 +43,9 @@ $sqlDestinations = "SELECT d.destination_id, d.destination as destination_name, 
                     JOIN province p ON l.province_id = p.province_id
                     WHERE d.destination LIKE ?
                     LIMIT 5";
-
-$stmtProv = $conn->prepare($sqlProvinces);
-$stmtProv->bind_param("s", $like);
-$stmtProv->execute();
-$provinces = $stmtProv->get_result()->fetch_all(MYSQLI_ASSOC);
-
-$stmtLoc = $conn->prepare($sqlLocations);
-$stmtLoc->bind_param("s", $like);
-$stmtLoc->execute();
-$locations = $stmtLoc->get_result()->fetch_all(MYSQLI_ASSOC);
-
-$stmtDest = $conn->prepare($sqlDestinations);
-$stmtDest->bind_param("s", $like);
-$stmtDest->execute();
-$destinations = $stmtDest->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmtDest = $pdo->prepare($sqlDestinations);
+$stmtDest->execute([$like]);
+$destinations = $stmtDest->fetchAll(PDO::FETCH_ASSOC);
 
 // Combine results
 $suggestions = array_merge($provinces, $locations, $destinations);
@@ -68,7 +65,7 @@ foreach ($suggestions as $item) {
     }
     $output[] = [
         'label' => $label,
-        'province_id' => $province_id,
+        'province_id' => (int)$province_id,
         'type' => $item['type']
     ];
 }
@@ -76,6 +73,6 @@ foreach ($suggestions as $item) {
 header('Content-Type: application/json');
 echo json_encode($output);
 
-$conn->close();
+//$conn->close();
 
 ?>
