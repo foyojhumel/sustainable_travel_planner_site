@@ -12,11 +12,9 @@ if (!$location_id) {
 
 // 1. Get location info (location name and description)
 $sqlLocation = "SELECT location, description FROM location WHERE location_id = ?";
-$stmtLoc = $conn->prepare($sqlLocation);
-$stmtLoc->bind_param("i", $location_id);
-$stmtLoc->execute();
-$locationResult = $stmtLoc->get_result();
-$location = $locationResult->fetch_assoc();
+$stmtLoc = $pdo->prepare($sqlLocation);
+$stmtLoc->execute([$location_id]);
+$location = $stmtLoc->fetch(PDO::FETCH_ASSOC);
 
 if (!$location) {
     echo json_encode(['error' => 'Location not found']);
@@ -31,14 +29,12 @@ $sqlDestinations = "SELECT d.destination_id, d.destination, d.eco_indicator, d.r
                 JOIN location l ON d.location_id = l.location_id
                 JOIN province p ON l.province_id = p.province_id
                 WHERE d.location_id = ? AND path IS NOT NULL";
-$stmtDests = $conn->prepare($sqlDestinations);
-$stmtDests->bind_param("i", $location_id);
-$stmtDests->execute();
-$destinationsResult = $stmtDests->get_result();
+$stmtDests = $pdo->prepare($sqlDestinations);
+$stmtDests->execute([$location_id]);
+$destinationsResult = $stmtDests->fetchAll(PDO::FETCH_ASSOC);
 $destinations = [];
-$baseurl = BASE_URL; // Use the base URL from config.php
-while ($row = $destinationsResult->fetch_assoc()) {
-    // Prepend the base URL to the image path
+$baseurl = BASE_URL;
+foreach ($destinationsResult as $row) {
     $row['path'] = $baseurl . $row['path'];
     $destinations[] = $row;
 }
@@ -54,7 +50,5 @@ $response = [
 
 header('Content-Type: application/json');
 echo json_encode($response);
-
-$conn->close();
 
 ?>
