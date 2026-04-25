@@ -92,6 +92,10 @@
     background: linear-gradient(to right, #fafaf5 0%, transparent 15%);
 }
 
+#editMottoForm {
+    display: none;
+}
+
 @media (max-width: 768px)
 {
     .glass-effect 

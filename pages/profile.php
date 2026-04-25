@@ -1,3 +1,29 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: log_in.php");
+    exit();
+}
+
+require_once '../php/dbConnect.php';
+
+$user_id = $_SESSION['user_id'];
+
+// Fetch user data
+$stmt = $pdo->prepare("SELECT name, motto FROM users WHERE user_id = ?");
+$stmt->execute([$user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    // Thise should never happen, but will be handled gracefully if ever
+    session_destroy();
+    header("Location: log_in.php");
+    exit();
+}
+
+$name = htmlspecialchars($user['name']);
+$motto = htmlspecialchars($user['motto'] ?? '');
+?>
 <!DOCTYPE html>
 
 <html class="light" lang="en">
@@ -68,13 +94,36 @@
                 <!--Identity Area-->
                 <div class="flex-grow pt-4">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-                        <h1 class="text-5xl font-headline font-bold text-primary tracking-tight mb-2">
-                            Jhumel Foyo
+                        <h1 id="userName" class="text-5xl font-headline font-bold text-primary tracking-tight mb-2">
+                            <!--Display username-->
+                            <?php echo $name; ?>
                         </h1>
                     </div>
-                    <p class="max-w-2xl text-on-surface-variant leading-relaxed text-lg font-light italic">
-                        "Curating life one journey at a time. Currently chasing the beauty across the Philippines islands."
-                    </p>
+                    <div class="relative group shrink-0">
+                        <p id="userMotto" class="max-w-2xl text-on-surface-variant leading-relaxed text-lg font-light italic">
+                            <!--Display motto-->
+                            <?php echo $motto ?: 'Click edit to add your motto...'; ?>
+                        </p>
+                        <button id="editMottoBtn" class="absolute -bottom-4 -right-4 bg-primary text-on-primary p-4 rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2 group">
+                        <!--Edit Icon-->
+                        <svg class="text-base" height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
+                            <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
+                        </svg>
+                        </button>
+                        <div id="editMottoForm">
+                            <textarea id="newMotto" rows="3" class="text-on-surface w-full p-3 rounded-md focus-within:bg-surface focus-within:ring-primary">
+                                <?php echo $motto; ?>
+                            </textarea>
+                            <div class="mt-3 flex gap-10">
+                                <button id="saveMottoBtn" class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl text-sm font-bold scale-95 active:opacity-80 transition-transform shadow-lg shadow-primary/10">
+                                    Save
+                                </button>
+                                <button id="cancelMottoBtn" class="px-4 py-1 text-sm font-semibold text-stone-600 hover:text-[#00327d] transition-all duration-300">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!--Main Content Area: Saved Itineraries-->

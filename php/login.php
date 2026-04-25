@@ -30,7 +30,7 @@ if (empty($errors)) {
             session_regenerate_id(true);
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['user_name'] = $user['name'];
-            header("Location: " . BASE_URL . "/pages/profile.html");
+            header("Location: " . BASE_URL . "/pages/profile.php");
             exit();
         } else {
             $errors[] = "Invalid email or password.";
