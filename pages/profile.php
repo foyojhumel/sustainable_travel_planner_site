@@ -6,11 +6,12 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 require_once '../php/dbConnect.php';
+require_once __DIR__ . '/../config.php';
 
 $user_id = $_SESSION['user_id'];
 
 // Fetch user data
-$stmt = $pdo->prepare("SELECT name, motto FROM users WHERE user_id = ?");
+$stmt = $pdo->prepare("SELECT name, motto, profile_picture FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -23,6 +24,8 @@ if (!$user) {
 
 $name = htmlspecialchars($user['name']);
 $motto = htmlspecialchars($user['motto'] ?? '');
+$profilePic = $user['profile_picture'] ?? '';
+$profilePicUrl = !empty($profilePic) ? '../' . $profilePic : '../images/profiles/default-avatar.jpg';
 ?>
 <!DOCTYPE html>
 
@@ -68,7 +71,7 @@ $motto = htmlspecialchars($user['motto'] ?? '');
                         <!--Populated dynamically by JavaScript-->
                     </div>
                     <div>
-                        <img class="w-10 h-10 rounded-full overflow-hidden" src="../images/profile/foyoJhumel1.jpg"/>
+                        <img id="profileImage" src="<?php echo $profilePicUrl; ?>" alt="Profile Picture" class="w-10 h-10 rounded-full overflow-hidden"/>
                     </div>
                 </div>
             </nav>
@@ -77,11 +80,11 @@ $motto = htmlspecialchars($user['motto'] ?? '');
             <!--Profile Header Section-->
             <section class="flex flex-col lg:flex-row gap-12 items-start mb-20">
                 <!--Avatar Area-->
-                <div class="relative group shrink-0">
+                <div class="profile-picture-container relative group shrink-0">
                     <div class="w-48 h-64 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl shadow-primary/5">
-                        <img class="w-full h-full object-cover" src="../images/profile/foyoJhumel1.jpg"/>
+                        <img id="profileImage" src="<?php echo $profilePicUrl; ?>" alt="Profile Picture" class="w-full h-full object-cover"/>
                     </div>
-                    <button class="absolute -bottom-4 -right-4 bg-primary text-on-primary p-4 rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2 group">
+                    <button id="editPhotoBtn" class="absolute -bottom-4 -right-4 bg-primary text-on-primary p-4 rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2 group">
                         <!--Edit Icon-->
                         <svg class="text-base" height="18px" viewBox="0 -960 960 960" width="18px" fill="#ffffff">
                             <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
@@ -90,6 +93,7 @@ $motto = htmlspecialchars($user['motto'] ?? '');
                             Edit Photo
                         </span>
                     </button>
+                    <input type="file" id="profilePhotoInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
                 </div>
                 <!--Identity Area-->
                 <div class="flex-grow pt-4">

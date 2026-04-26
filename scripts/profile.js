@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize search suggestions
+    // 1. Search suggestions
     initSearchSuggestions('searchInput', 'suggestionsDropdown');
 
-    // Motto editing functionality
+    // 2. Motto editing (as before)
     const editBtn = document.getElementById('editMottoBtn');
     const mottoForm = document.getElementById('editMottoForm');
     const saveBtn = document.getElementById('saveMottoBtn');
@@ -10,27 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const userMottoEl = document.getElementById('userMotto');
     const newMottoTextarea = document.getElementById('newMotto');
 
-    // Show edit form
     if (editBtn && mottoForm) {
         editBtn.addEventListener('click', () => {
             mottoForm.style.display = 'block';
         });
-    } else {
-        console.warn('Edit motto button or form not found');
     }
 
-    // Cancel button – hide form
     if (cancelBtn && mottoForm) {
         cancelBtn.addEventListener('click', () => {
             mottoForm.style.display = 'none';
         });
     }
 
-    // Save button – AJAX update
     if (saveBtn && newMottoTextarea && userMottoEl && mottoForm) {
         saveBtn.addEventListener('click', () => {
             const newMotto = newMottoTextarea.value.trim();
-            fetch('update_motto.php', {
+            fetch('../php/updateMotto.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'motto=' + encodeURIComponent(newMotto)
@@ -44,12 +39,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Error: ' + data.error);
                 }
             })
+            .catch(err => console.error(err));
+        });
+    }
+
+    // 3. Profile picture upload
+    const editPhotoBtn = document.getElementById('editPhotoBtn');
+    const photoInput = document.getElementById('profilePhotoInput');
+    const profileImage = document.getElementById('profileImage');
+
+    if (editPhotoBtn && photoInput && profileImage) {
+        editPhotoBtn.addEventListener('click', () => {
+            photoInput.click();
+        });
+
+        photoInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('profile_picture', file);
+
+            fetch('../php/uploadProfilePicture.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    profileImage.src = data.new_url + '?t=' + Date.now();
+                    alert('Profile picture updated!');
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
             .catch(err => {
-                console.error('Fetch error:', err);
+                console.error('Upload error:', err);
                 alert('Network error. Please try again.');
             });
+
+            photoInput.value = '';
         });
-    } else {
-        console.warn('Save button, textarea, or motto element missing');
     }
 });

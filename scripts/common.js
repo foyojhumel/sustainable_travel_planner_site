@@ -47,7 +47,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
 
     async function fetchSuggestions(query, dropdown) {
         try {
-            const response = await fetch(`${BASE_PATH}php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
+            const response = await fetch(`${BASE_PATH}/php/searchSuggestions.php?q=${encodeURIComponent(query)}`);
             const suggestions = await response.json();
             if (!suggestions.length) {
                 dropdown.classList.add('hidden');
