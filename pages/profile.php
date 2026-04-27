@@ -70,8 +70,13 @@ $profilePicUrl = !empty($profilePic) ? '../' . $profilePic : '../images/profiles
                     <div id="suggestionsDropdown" class="absolute right-10 top-10 mt-2 bg-surface rounded-xl shadow-lg z-30 hidden">
                         <!--Populated dynamically by JavaScript-->
                     </div>
-                    <div>
-                        <img id="profileImage" src="<?php echo $profilePicUrl; ?>" alt="Profile Picture" class="w-10 h-10 rounded-full overflow-hidden"/>
+                    <div class="relative" id="profileDropdown">
+                        <img id="profileIcon" src="<?php echo getUserProfilePic(); ?>" alt="Profile Picture" class="w-10 h-10 rounded-full overflow-hidden cursor-pointer"/>
+                        <div id="logoutMenu" class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg hidden z-50">
+                            <a href="../php/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Logout
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>

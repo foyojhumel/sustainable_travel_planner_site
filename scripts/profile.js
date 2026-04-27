@@ -134,4 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
             photoInput.value = '';
         });
     }
+
+    // For logout menu
+    const profileIcon = document.getElementById('profileIcon');
+    const logoutMenu = document.getElementById('logoutMenu');
+    if (profileIcon && logoutMenu) {
+        profileIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            logoutMenu.classList.toggle('hidden');
+        });
+        // Click anywhere else hides the menu
+        document.addEventListener('click', () => {
+            logoutMenu.classList.add('hidden');
+        });
+    }
 });
