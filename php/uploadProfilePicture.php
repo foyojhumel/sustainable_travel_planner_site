@@ -56,6 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
         $updateStmt = $pdo->prepare("UPDATE users SET profile_picture = ? WHERE user_id = ?");
         $updateStmt->execute([$relativePath, $user_id]);
 
+        // Also update session variable
+        $_SESSION['profile_picture'] = $relativePath; // stores relative path
+
         echo json_encode(['success' => true, 'new_url' => BASE_URL . $relativePath]);
     } else {
         echo json_encode(['error' => 'Failed to save file.']);

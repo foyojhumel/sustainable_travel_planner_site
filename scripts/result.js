@@ -181,7 +181,7 @@ function initCarousel(trackElement, prevBtnId, nextBtnId) {
 }
 
 function goToItinerary(locationId, destinationId) {
-    window.location.href = `itinerary.html?location_id=${locationId}&destination_id=${destinationId}`;
+    window.location.href = `itinerary.php?location_id=${locationId}&destination_id=${destinationId}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

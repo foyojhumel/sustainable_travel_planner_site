@@ -19,6 +19,7 @@ $errors = [];
 if (empty($email)) $errors[] = "Email is required.";
 if (empty($password)) $errors[] = "Password is required.";
 
+// Query database for users when both email and password are provided
 if (empty($errors)) {
     $sql = "SELECT user_id, name, password_hash FROM users WHERE email = ?";
     try {
@@ -26,10 +27,16 @@ if (empty($errors)) {
         $stmt->execute([$email]);
         $user = $stmt->fetch();
         
+        // Redirect to profile page if user has an account
         if ($user && password_verify($password, $user['password_hash'])) {
             session_regenerate_id(true);
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['user_name'] = $user['name'];
+            // Add profile picture to session
+            $stmt = $pdo->prepare("SELECT profile_picture FROM users WHERE user_id = ?");
+            $stmt->execute([$user['user_id']]);
+            $profilePic = $stmt->fetchColumn();
+            $_SESSION['profile_picture'] = $profilePic ? : '../images/profiles/default-avatar.jpg';
             header("Location: " . BASE_URL . "/pages/profile.php");
             exit();
         } else {
