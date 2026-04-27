@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+require_once 'config.php';
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,12 +21,18 @@
                 Curated Wanderer
             </div>
             <div class="flex items-center gap-4">
-                <button class="px-4 py-1 text-sm font-semibold text-stone-600 hover:text-[#00327d] transition-all duration-300" onclick="window.location.href='pages/log_in.php'">
-                    Log In
-                </button>
-                <button class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl text-sm font-bold scale-95 active:opacity-80 transition-transform shadow-lg shadow-primary/10" onclick="window.location.href='pages/sign_up.php'">
-                    Sign Up
-                </button>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="pages/profile.php">
+                        <img src="<?php echo getUserProfilePic(); ?>" class="w-10 h-10 rounded-full overflow-hidden">
+                    </a>
+                <?php else: ?>
+                    <button class="px-4 py-1 text-sm font-semibold text-stone-600 hover:text-[#00327d] transition-all duration-300" onclick="window.location.href='pages/log_in.php'">
+                        Log In
+                    </button>
+                    <button class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl text-sm font-bold scale-95 active:opacity-80 transition-transform shadow-lg shadow-primary/10" onclick="window.location.href='pages/sign_up.php'">
+                        Sign Up
+                    </button>
+                <?php endif; ?>
             </div>
             </div>
         </nav>

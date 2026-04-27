@@ -18,7 +18,7 @@ require_once __DIR__ . '/../config.php';
         <nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-on-surface/70 backdrop-blur-md">
             <div class="flex justify-between items-center px-4 py-4 max-w-screen-2xl mx-auto">
                 <div class="font-headline text-xl font-bold tracking-tight text-primary dark:text-[#dbe1ff]">
-                    <a href="../index.html">
+                    <a href="../index.php">
                         Curated Wanderer
                     </a>
                 </div>

@@ -32,7 +32,7 @@ function loadSavedItineraries() {
                         </div>
                     </div>
                     <div>
-                        <span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary font-bold">
+                        <span class="text-l font-label uppercase tracking-[0.2em] text-secondary font-bold">
                             ${escapeHtml(item.province)}
                         </span>
                         <h3 class="text-2xl font-headline font-bold text-primary mt-2">

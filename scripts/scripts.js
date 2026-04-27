@@ -105,7 +105,7 @@ function createDestinationCard(dest) {
 }
 
 function goToItinerary(locationId, destinationId) {
-    window.location.href = `pages/itinerary.html?location_id=${locationId}&destination_id=${destinationId}`;
+    window.location.href = `pages/itinerary.php?location_id=${locationId}&destination_id=${destinationId}`;
 }
 
 // Startup code to initialize search suggestions and hero slideshow
