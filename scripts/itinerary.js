@@ -1,11 +1,3 @@
-const icon = document.getElementById('favIcon');
-let isFavorited = false;
-
-icon.addEventListener('click', () => {
-  isFavorited = !isFavorited;
-  icon.setAttribute('fill', isFavorited ? 'red' : '#434653');
-});
-
 // Map display
 let map, directionsService, directionsRenderer;
 
@@ -111,7 +103,7 @@ async function initMap() {
         // Build route request
         const otherDestinations = destinationsWithCoords.filter(d => d.destination_id !== startDest.destination_id);
         
-        // Separate the last destination as the final stop (we'll keep it for the end)
+        // Separate the last destination as the final stop (it will used for the end)
         // We'll let Google reorder the waypoints, but the final destination will stay at the end
         const finalDestinationObj = otherDestinations[otherDestinations.length - 1];
         const waypointDestinations = otherDestinations.slice(0, -1); // all except last
@@ -221,3 +213,45 @@ function renderItineraryCards(destinations, startId) {
 }
 
 window.initMap = initMap;
+
+
+// Heart icon save function logic on itinerary page
+const heartIcon = document.getElementById('favIcon');
+const urlParams = new URLSearchParams(window.location.search);
+const locationId = urlParams.get('location_id');
+
+if (heartIcon && locationId) {
+    // Check initial saved status
+    fetch(`../php/checkSaved.php?location_id=${locationId}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.saved) {
+                heartIcon.setAttribute('fill', 'red');
+                heartIcon._saved = true;
+            } else {
+                heartIcon.setAttribute('fill', '#434653');
+                heartIcon._saved = false;
+            }
+        })
+        .catch(err => console.error(err));
+
+    // Toggle on click
+    heartIcon.addEventListener('click', () => {
+        const wasSaved = heartIcon._saved;
+        fetch('../php/saveItinerary.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `location_id=${locationId}`
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.saved === true || data.saved === false) {
+                heartIcon._saved = data.saved;
+                heartIcon.setAttribute('fill', data.saved ? 'red' : '#434653');
+            } else if (data.error) {
+                alert('Error: ' + data.error);
+            }
+        })
+        .catch(err => console.error(err));
+    });
+}

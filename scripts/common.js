@@ -103,3 +103,12 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
         }
     });
 }
+
+// Go to itinerary page
+window.goToItinerary = function(locationId, destinationId) {
+    if (destinationId) {
+        window.location.href = `itinerary.html?location_id=${locationId}&destination_id=${destinationId}`;
+    } else {
+        window.location.href = `itinerary.html?location_id=${locationId}`;
+    }
+};

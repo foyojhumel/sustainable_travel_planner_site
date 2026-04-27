@@ -138,64 +138,8 @@ $profilePicUrl = !empty($profilePic) ? '../' . $profilePic : '../images/profiles
                     </h2>
                 </div>
                 <!--Bento-Style Grid-->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!--Trip Card 1-->
-                    <div class="group flex flex-col">
-                        <div class="relative overflow-hidden rounded-xl aspect-[5/4] md:aspect-[7/8] mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="../images/palawan/el_nido/big_lagoon.jpg"/>
-                            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="w-full bg-white text-primary py-4 rounded-xl font-headline font-bold text-sm uppercase tracking-widest">
-                                View Itinerary
-                            </button>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary font-bold">
-                                Palawan • 3 Days
-                            </span>
-                            <h3 class="text-2xl font-headline font-bold text-primary mt-2">
-                                El Nido
-                            </h3>
-                        </div>
-                    </div>
-                    <!--Trip Card 2 (Offset/Asymmetric feel)-->
-                    <div class="group flex flex-col lg:mt-12">
-                        <div class="relative overflow-hidden rounded-xl aspect-[5/4] md:aspect-[7/8] mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="../images/rizal/binangonan/mount_tagapo.jpg"/>
-                            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="w-full bg-white text-primary py-4 rounded-xl font-headline font-bold text-sm uppercase tracking-widest">
-                                View Itinerary
-                            </button>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary font-bold">
-                                Rizal • 1 Days
-                            </span>
-                            <h3 class="text-2xl font-headline font-bold text-primary mt-2">
-                                Binangonan
-                            </h3>
-                        </div>
-                    </div>
-                    <!--Trip Card 3-->
-                    <div class="group flex flex-col">
-                        <div class="relative overflow-hidden rounded-xl aspect-[5/4] md:aspect-[7/8] mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="../images/leyte/palompon/kalanggaman_island.jpg"/>
-                            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="w-full bg-white text-primary py-4 rounded-xl font-headline font-bold text-sm uppercase tracking-widest">
-                                View Itinerary
-                            </button>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary font-bold">
-                                Leyte • 2 Days
-                            </span>
-                            <h3 class="text-2xl font-headline font-bold text-primary mt-2">
-                                Kalanggaman Island
-                            </h3>
-                        </div>
-                    </div>
+                <div id="savedItinerariesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Dynamically populated by Javascript -->
                 </div>
             </section>
         </main>
