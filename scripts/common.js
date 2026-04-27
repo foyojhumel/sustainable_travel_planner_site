@@ -72,7 +72,7 @@ function initSearchSuggestions(searchInputId, suggestionsDropdownId, buttonId = 
     }
 
     function goToResultPage(provinceId) {
-        window.location.href = `${BASE_PATH}/pages/result.html?province_id=${provinceId}`;
+        window.location.href = `${BASE_PATH}/pages/result.php?province_id=${provinceId}`;
     }
 
     function performSearch() {

@@ -1,3 +1,11 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+require_once __DIR__ . '/../config.php';
+
+?>
 <!DOCTYPE html>
 
 <html class="light" lang="en">
@@ -40,8 +48,8 @@
                         <!--Populated dynamically by JavaScript-->
                     </div>
                     <div>
-                        <a>
-                        <img class="w-10 h-10 rounded-full overflow-hidden" src="../images/profile/foyoJhumel1.jpg"/>
+                        <a href="../pages/profile.php">
+                        <img src="<?php echo getUserProfilePic(); ?>" class="w-10 h-10 rounded-full overflow-hidden"/>
                         </a>
                     </div>
                 </div>

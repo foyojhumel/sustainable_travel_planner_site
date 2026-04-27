@@ -46,10 +46,10 @@ $profilePicUrl = !empty($profilePic) ? '../' . $profilePic : '../images/profiles
                     </a>
                 </div>
                 <div class="hidden md:flex gap-8">
-                    <a class="font-headline tracking-widest uppercase text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="../pages/result.html">
+                    <a class="font-headline tracking-widest uppercase text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="../pages/result.php">
                         Destinations
                     </a>
-                    <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#dbe1ff] hover:text-primary transition-colors duration-300" href="../pages/itinerary.html">
+                    <a class="font-headline uppercase tracking-widest text-[#44474e] dark:text-[#dbe1ff] hover:text-primary transition-colors duration-300" href="../pages/itinerary.php">
                         Itinerary
                     </a>
                 </div>

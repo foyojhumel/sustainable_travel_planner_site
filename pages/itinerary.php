@@ -24,7 +24,7 @@ require_once __DIR__ . '/../config.php';
                     </a>
                 </div>
                 <div class="hidden md:flex gap-8">
-                    <a class="font-headline tracking-widest uppercase text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="../pages/result.html">
+                    <a class="font-headline tracking-widest uppercase text-[#44474e] dark:text-[#c4c6d0] hover:text-primary transition-colors duration-300" href="../pages/result.php">
                         Destinations
                     </a>
                     <div class="font-headline uppercase tracking-widest text-primary dark:text-[#dbe1ff] border-b-2 border-primary pb-1">
