@@ -36,7 +36,7 @@ if (empty($errors)) {
             $stmt = $pdo->prepare("SELECT profile_picture FROM users WHERE user_id = ?");
             $stmt->execute([$user['user_id']]);
             $profilePic = $stmt->fetchColumn();
-            $_SESSION['profile_picture'] = $profilePic ? : '../images/profiles/default-avatar.jpg';
+            $_SESSION['profile_picture'] = $profilePic ? : '/images/profiles/default-avatar.jpg';
             header("Location: " . BASE_URL . "/pages/profile.php");
             exit();
         } else {

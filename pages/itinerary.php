@@ -140,7 +140,7 @@ require_once __DIR__ . '/../config.php';
         </footer>
         <script src="../scripts/common.js"></script>
         <script src="../scripts/itinerary.js"></script>
-        <!-- Load the Google Maps API with async and defer, and include all necessary libraries -->
+        <!-- Loads the Google Maps API with async and defer, including all necessary libraries -->
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=routes,geocoding,marker&callback=initMap" loading="async" async defer></script>
     </body>
 </html>

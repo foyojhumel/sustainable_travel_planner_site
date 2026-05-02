@@ -16,7 +16,7 @@ $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    // Thise should never happen, but will be handled gracefully if ever
+    // This should never happen, but will be handled gracefully if ever
     session_destroy();
     header("Location: log_in.php");
     exit();

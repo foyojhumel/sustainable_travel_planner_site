@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkStmt = $pdo->prepare($checkSql);
     $checkStmt->execute([$email]);
     if ($checkStmt->fetch()) {
-        $errors[] = "Email is already registered. Please try other email.";
+        $errors[] = "Email is already registered. Please try another email.";
         $_SESSION['signup_errors'] = $errors;
         header("Location: " . BASE_URL . "/pages/sign_up.php");
         exit();

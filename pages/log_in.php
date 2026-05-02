@@ -5,11 +5,11 @@
     <head>
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <title>Login | Curated Wandere</title>
+        <title>Login | Curated Wanderer</title>
         <link href="../styles/output.css" rel="stylesheet"/>
     </head>
     <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen flex items-center justify-center p-6">
-        <!--Subtle background aesthetic element-->
+        <!--Subtle background element-->
         <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
             <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-surface-container blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-[40rem] h-[40rem] rounded-full bg-surface-container-highest blur-3xl"></div>

@@ -73,6 +73,4 @@ foreach ($suggestions as $item) {
 header('Content-Type: application/json');
 echo json_encode($output);
 
-//$conn->close();
-
 ?>

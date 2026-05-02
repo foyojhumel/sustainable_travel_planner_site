@@ -10,7 +10,6 @@
     </head>
     <body class="font-body text-on-surface antialiased">
         <!--Top Navigation Bar (Suppressed on focused transactional pages like registration)-->
-        <!--As per "Shell Visibility & Relevance" rule: Transactional screens exclude the Shell-->
         <main class="min-h-screen flex items-center justify-center p-6 bg-surface">
             <!--Editorial Background Ornamentation-->
             <div class="fixed inset-0 left-0 w-ful h-full pointer-events-none overflow-hidden z-0">
@@ -89,19 +88,6 @@
                         <input id="confirm_password" name="confirm_password" placeholder="••••••••" type="password" class="w-full bg-surface-container-low border-0 rounded-xl px-5 py-2 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary transition-all duration-300 outline-none" required/>
                         </div>
                         </div>
-                        <!--Terms Checkbox-->
-                        <div class="flex items-start gap-3 py-2">
-                        <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-low" id="terms" type="checkbox"/>
-                        <label class="text-sm text-on-surface-variant leading-relaxed" for="terms">
-                            I agree to the
-                            <a class="text-primary hover:underline underline-offset-4" href="#">
-                                Terms of Service
-                            </a> and
-                            <a class="text-primary hover:underline underline-offset-4" href="#">
-                                Privacy Policy
-                            </a>
-                        </label>
-                        </div>
                         <!--Primary Action-->
                         <div class="pt-1">
                         <button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold py-2 rounded-xl shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300" type="submit">
@@ -121,6 +107,5 @@
                 </div>
             </div>
         </main>
-        <!--Global Footer (Suppressed on Transactional/Login Shells as per instructions)-->
     </body>
 </html>

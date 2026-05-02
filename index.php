@@ -23,7 +23,7 @@ require_once 'config.php';
             <div class="flex items-center gap-4">
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <a href="pages/profile.php">
-                        <img src="<?php echo getUserProfilePic(); ?>" class="w-10 h-10 rounded-full overflow-hidden">
+                        <img src="<?php echo getUserProfilePicIndex(); ?>" class="w-10 h-10 rounded-full overflow-hidden">
                     </a>
                 <?php else: ?>
                     <button class="px-4 py-1 text-sm font-semibold text-stone-600 hover:text-[#00327d] transition-all duration-300" onclick="window.location.href='pages/log_in.php'">

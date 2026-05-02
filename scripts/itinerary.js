@@ -104,7 +104,7 @@ async function initMap() {
         const otherDestinations = destinationsWithCoords.filter(d => d.destination_id !== startDest.destination_id);
         
         // Separate the last destination as the final stop (it will used for the end)
-        // We'll let Google reorder the waypoints, but the final destination will stay at the end
+        // Let Google reorder the waypoints, but the final destination will stay at the end
         const finalDestinationObj = otherDestinations[otherDestinations.length - 1];
         const waypointDestinations = otherDestinations.slice(0, -1); // all except last
 
